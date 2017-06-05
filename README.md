@@ -1,4 +1,4 @@
-# Trippy Travel App
+# Hello World
 
 [Github repo](https://github.com/victorli158/hello-world)
 
