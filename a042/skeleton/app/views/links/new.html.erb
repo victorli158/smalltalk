@@ -1,0 +1,10 @@
+<form action="<%= links_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="title">Title</label>
+  <input type="text" name="link[title]" value="<%= @link.title %>">
+
+  <label for="body">Body</label>
+  <input type="text" name="link[body]" value="<%= @link.body %>">
+
+  <input type="submit" value="Add Link">
+</form>

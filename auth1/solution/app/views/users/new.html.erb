@@ -1,0 +1,44 @@
+<h2>Sign Up</h2>
+<% if flash[:errors] %>
+  <%flash[:errors].each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<form action="<%= users_url %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= auth_token_input %>
+  <label>
+    Username
+    <input type="text" name="user[username]" value="">
+  </label>
+
+  <label>
+    Password
+    <input type="password" name="user[password]" value="">
+  </label>
+
+  <input type="submit" value="Sign Up">
+</form>
+
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name='_method' value="patch">
+<input type="hidden" name='_method' value="patch">
+<input type="hidden" name="_method" value="patch">
+<form action="<%= url_path(@user.id) %>" method="get">
+  <input type="text" name=user[username] value="<%= @user.username %>">
+  <input type="text" name=user[password] value="<%= @user.password %>">
+  <input type="submit" value="Create Link">
+</form>
+
+<% if current_user.logged_in? %>
+  <% @user.links.each do |link| %>
+    <%= link %>
+  <% end %>
+<% end %>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<input type="hidden" name="_method" value="delete">
+
+<%= link_to "homepage", users_url %>

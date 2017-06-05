@@ -1,0 +1,29 @@
+<h1>Links#show</h1>
+<p>Find me in app/views/links/show.html.erb</p>
+
+<%= @link.user.username %>
+<%= @link.title %>
+<%= @link.url %>
+
+<%= link_to "Edit Link", edit_link_url(@link) %>
+
+Add Comment
+<form action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="comment[link_id]" value="<%= @link.id %>">
+  <label for="">Comment</label>
+  <input type="text" id="Comment" name="comment[body]">
+
+  <input type="submit" value="Add Comment">
+</form>
+
+<% @link.comments.each do |comment| %>
+<%= comment.body %>
+<%= button_to "Remove Comment", comment_url, method: :delete %>
+<% end %>
+
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<%= error %>
+<% end %>
+<% end %>

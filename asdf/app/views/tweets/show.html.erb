@@ -1,0 +1,29 @@
+Shows tweets
+
+<%= @tweet.title %>
+<%= @tweet.body %>
+<%= @tweet.user.username %>
+
+<%= link_to "Edit Tweet", edit_tweet_url(@tweet) %>
+
+Add Reply
+<form action="<%= replies_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="reply[tweet_id]" value="<%= @tweet.id %>">
+  <label for="">Body</label>
+  <input type="text" id="Reply Body" name="reply[body]">
+
+  <input type="submit" value="Add Reply">
+</form>
+
+<% @tweet.replies.each do |reply| %>
+<%= reply.body %>
+<%= button_to "Remove Reply", reply_url(reply.id), method: :delete %>
+<% end %>
+
+
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<%= error %>
+<% end %>
+<% end %>

@@ -1,0 +1,15 @@
+const uniqueArray = (ary) => {
+  noPush = []
+  newArray = []
+  for(let i = 0; i < ary.length; i++){
+    for(let j = i + 1; j < ary.length; j++){
+      if(ary[i] == ary[j]){
+        noPush.push(ary[i])
+      }
+    }
+    if (!noPush.includes(ary[i])){
+      newArray.push(ary[i])
+    }
+  }
+  return newArray
+}

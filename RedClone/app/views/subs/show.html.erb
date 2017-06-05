@@ -1,0 +1,36 @@
+<%= "Welcome to #{@sub.title}" %>
+<%= link_to "All Subs", subs_url %>
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+<%= error %>
+<% end %>
+<% end %>
+
+<% @sub.posts.each do |post| %>
+<br>
+<%= post.title %>
+<%= post.content %>
+<%= link_to post.url, "http://www.#{post.url}" %>
+<%= link_to "Edit post", edit_post_url(post) %>
+<% end %>
+
+New Post
+<form action="<%= posts_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="">Title</label>
+  <input type="text" id="Title" name="post[title]" value="<%= @post.title %>">
+
+  <label for="">Content</label>
+  <input type="text" id="Content" name="post[content]" value="<%= @post.content %>">
+
+  <label for="">URL</label>
+  <input type="text" id="URL" name="post[url]" value="<%= @post.url %>">
+  <% Sub.all do |sub| %>
+    <label>
+      <input type="checkbox"
+             value="<%= sub.id %>"
+             name="post[sub_ids][]"
+             <%= "checked" if @post.sub_ids.include?(sub.id) %>>
+    </label>
+  <input type="submit" value="Create Post!">
+</form>

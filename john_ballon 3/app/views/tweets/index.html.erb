@@ -1,0 +1,11 @@
+<h1>Tweets#index</h1>
+<p>Find me in app/views/tweets/index.html.erb</p>
+
+
+
+<% if current_user %>
+<% current_user.tweets.each do |tweet| %>
+<%= link_to tweet.title, tweet_url(tweet) %>
+<%= tweet.body %>
+<% end %>
+<% end %>

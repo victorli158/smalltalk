@@ -1,0 +1,18 @@
+Edit this post - v cool
+<form action="<%= post_url(@post) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="post[sub_id]" value="<%= @post.sub_id %>">
+  <input type="hidden" name="post[user_id]" value="<%= @post.user_id %>">
+  <label for="">Title</label>
+  <input type="text" id="Title" name="post[title]" value="<%= @post.title %>">
+
+  <label for="">URL</label>
+  <input type="text" id="URL" name="post[url]" value="<%= @post.url %>">
+
+  <label for="">Content</label>
+  <input type="text" id="Contnet" name="post[content]" value="<%= @post.content %>">
+
+  <input type="submit" value="Edit Post">
+</form>
