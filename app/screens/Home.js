@@ -2,15 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import { FlatList, View, Text } from 'react-native';
 
 import colors from '../config/colors';
+import { PrimaryButton } from '../components/Buttons';
 
-class Header extends Component {
+class Home extends Component {
   render() {
     return (
       <View>
-        <Text>Home</Text>
+        <PrimaryButton text="Create Trip" onPress={() => null} />
       </View>
     );
   }
 }
 
-export default Header;
+export default Home;

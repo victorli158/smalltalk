@@ -4,11 +4,12 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import styles from './styles';
 
 const PrimaryButton = ({ text, onPress }) => (
-  <View>
+  <View style={styles.primaryButtonContainer}>
     <TouchableOpacity
       onPress={onPress}
+      style={styles.primaryButton}
     >
-      <Text>{text}</Text>
+      <Text style={styles.primaryButtonText}>{text}</Text>
     </TouchableOpacity>
   </View>
 );
