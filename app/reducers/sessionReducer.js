@@ -2,7 +2,7 @@ import { RECEIVE_USER, REMOVE_USER } from '../actions/session/sessionActions'
 import _ from 'lodash';
 
 const initialState = {
-
+  name: ''
 }
 
 export default session = (state = initialState, action) => {
