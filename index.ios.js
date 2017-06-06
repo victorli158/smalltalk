@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import RootReducer from './app/reducers/index';
 import { AppRegistry } from 'react-native';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
@@ -14,9 +15,9 @@ const configureStore = (initialState) => {
     applyMiddleware(
       thunkMiddleware,
       loggerMiddleware
-    ),
+    )
   );
-  return createStore(reducer, initialState, enhancer);
+  return createStore(RootReducer, initialState, enhancer);
 };
 
 const store = configureStore({});
@@ -33,9 +34,11 @@ export default class PlanIt extends Component {
 }
 
 const App = () => {
-  <Provider store={store}>
-    <PlanIt />
-  </Provider>
+  return(
+    <Provider store={store}>
+      <PlanIt />
+    </Provider>)
+  ;
 };
 
 
