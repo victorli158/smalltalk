@@ -20,7 +20,7 @@ class Login extends React.Component {
           title="Sign Up"
         />
       </View>
-    )
+    );
   }
 }
 
