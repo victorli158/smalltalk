@@ -24,6 +24,7 @@ export const HomeStack = StackNavigator({
   },
   SignUp: {
     screen: SignUpContainer,
+  },
   CreateTrip: {
     screen: CreateTripContainer,
     navigationOptions: ({ navigation }) => ({
