@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../screens/Home';
 import Base from '../screens/userHandling/Base';
 import LoginContainer from '../screens/userHandling/LoginContainer';
-import SignUpContainer from '../screens/userHandling/SignUp';
+import SignUpContainer from '../screens/userHandling/SignUpContainer';
 
 export const HomeStack = StackNavigator({
   Base: {
