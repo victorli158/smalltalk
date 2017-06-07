@@ -1,25 +1,57 @@
 import React from 'react';
-import { View, TextInput } from 'react-native';
+import { View } from 'react-native';
 
-class SignUp extends React.Component {
+
+import colors from '../../config/colors';
+import { TextInput } from '../../components/TextInput';
+import { PrimaryButton } from '../../components/Buttons';
+
+const fields = [
+  { placeholder: 'Enter username..', stateKey: 'username' },
+  { placeholder: 'Enter email..', stateKey: 'email' },
+  { placeholder: 'Enter password..', stateKey: 'password' },
+];
+
+class Login extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
 
+    this.state = {};
+
+  }
+
+  onInputChange = (text, stateKey) => {
+    const mod = {};
+    mod[stateKey] = text;
+    this.setState(mod);
+  }
+
+  handleSubmit = () => {
+    alert('Submit')
   }
 
   render(){
     return(
       <View>
-        <TextInput
-          placeholder="Enter first and last name.."
-          style={{ width: 300, height: 40}}
-          onChangeText={(text) => console.log(text)}
-          autoCorrect={false}
-          autoCapitalize='none'
-        />
+        {
+          fields.map((field) => (
+            <TextInput
+              style={{ width: 300, height: 40}}
+              key={field.stateKey}
+              onChangeText={(text) => this.onInputChange(text, field.stateKey)}
+              {...field}
+            />
+          ))
+        }
+        <View style={{ marginTop: 20 }}>
+          <PrimaryButton
+            label="Sign Up"
+            onPress={() => this.handleSubmit()}
+          />
+        </View>
       </View>
     )
   }
 }
 
-export default SignUp;
+export default Login;
