@@ -26,7 +26,7 @@ class Login extends React.Component {
   }
 
   handleSubmit = () => {
-    alert()
+    alert(this.state.password)
   }
 
   render(){
