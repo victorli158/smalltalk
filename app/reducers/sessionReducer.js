@@ -2,7 +2,8 @@ import { RECEIVE_USER, REMOVE_USER } from '../actions/session/sessionActions';
 import _ from 'lodash';
 
 const initialState = {
-  name: ''
+  username: "",
+  sessionToken: ""
 };
 
 const SessionReducer = (state = initialState, action) => {

@@ -13,16 +13,13 @@ export const removeUser = () => ({
 });
 
 export const signIn = (user) => (dispatch) => (
-  APIUtil.signIn(user)
-    .then((current_user) => dispatch(receiveUser(current_user)))
+  APIUtil.signIn(user).then((current_user) => dispatch(receiveUser(current_user)))
 )
 
 export const signOut = () => (dispatch) => (
-  APIUtil.signOut()
-    .then(() => dispatch(removeUser))
+  APIUtil.signOut().then(() => dispatch(removeUser))
 )
 
 export const signUp = (user) => (dispatch) => (
-  APIUtil.signUp(user)
-    .then((current_user) => dispatch(receiveUser(current_user)))
+  APIUtil.signUp(user).then((current_user) => dispatch(receiveUser(current_user)))
 )

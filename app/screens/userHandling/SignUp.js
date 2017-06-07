@@ -12,7 +12,7 @@ const fields = [
   { placeholder: 'Enter password..', stateKey: 'password' },
 ];
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   constructor(props){
     super(props);
 
@@ -27,10 +27,11 @@ class Login extends React.Component {
   }
 
   handleSubmit = () => {
-    alert('Submit')
+    this.props.signUp(this.state)
   }
 
   render(){
+    console.log(this.props)
     return(
       <View>
         {
@@ -54,4 +55,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default SignUp;
