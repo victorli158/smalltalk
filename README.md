@@ -7,10 +7,10 @@ This app will allow users to connect with friends to plan trips around the world
 
 ## Functionality & MVPs
 - [ ] User authentication
-- [ ] Users can create itineraries and invite other users
 - [ ] Users can add events/logistics to itinerary (activities/lodging/flights)
 - [ ] Incorporate Yelp API and search function to find activities
-- [ ] Incorporate Google Maps API
+- [ ] Bonus: Incorporate Google Maps API (approved by Andrew MacIver)
+- [ ] Bonus: Users can create itineraries and invite other users (approved by Andrew MacIver)
 - [ ] Bonus: Incorporate sockets to allow groups to chat
 - [ ] Bonus: Search auto-completion with Yelp results
 
