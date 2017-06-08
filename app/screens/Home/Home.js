@@ -5,7 +5,6 @@ import moment from 'moment';
 import colors from '../../config/colors';
 import { PrimaryButton } from '../../components/Buttons';
 import { trips } from '../../config/data';
-import UserTripsContainer from './UserTripsContainer';
 
 class Home extends Component {
   constructor(props) {
@@ -28,10 +27,12 @@ class Home extends Component {
       <ScrollView>
         <PrimaryButton label="Create Trip" onPress={this.handleCreatePress} />
         {this.state.trips.map((trip, idx) => (
-          <View key={idx}>
+          <View key={idx} style={{ borderWidth: 1, margin: 5, alignItems: 'center' }}>
             <Text>{trip.title}</Text>
-            <Text>{moment(trip.startDate).format('MMMM Do, YYYY')}</Text>
-            <Text>{moment(trip.endDate).format('MMMM Do, YYYY')}</Text>
+            <Text>
+              {moment(trip.startDate).format('MMMM Do, YYYY')} -
+              {moment(trip.endDate).format('MMMM Do, YYYY')}
+            </Text>
             <Text>{trip.location}</Text>
           </View>
         ))}
