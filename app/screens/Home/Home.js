@@ -1,14 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
-import colors from '../config/colors';
-import { PrimaryButton } from '../components/Buttons';
-import { trips } from '../config/data';
+import colors from '../../config/colors';
+import { PrimaryButton } from '../../components/Buttons';
+import { trips } from '../../config/data';
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.handleCreatePress = this.handleCreatePress.bind(this);
+    this.state = {
+      currentUser: this.props.currentUser,
+      trips: "",
+    };
   }
 
   handleCreatePress() {
@@ -16,13 +20,16 @@ class Home extends Component {
   }
 
   render() {
-    
+    for (let i = 0; i < trips.length; i++) {
+      this.state.trips += trips[i].title;
+    }
+
     return (
-      <View>
+      <ScrollView>
         <PrimaryButton label="Create Trip" onPress={this.handleCreatePress} />
         <Text>Upcoming Trips</Text>
-
-      </View>
+          <Text>{this.state.trips}</Text>
+      </ScrollView>
     );
   }
 }

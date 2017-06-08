@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { View, Text } from 'react-native';
 
-import { TextInput } from '../components/TextInput';
-import { PrimaryButton } from '../components/Buttons';
-import colors from '../config/colors';
+import { TextInput } from '../../components/TextInput';
+import { PrimaryButton } from '../../components/Buttons';
+import colors from '../../config/colors';
 
 const fields = [
   { placeholder: 'Title', stateKey: 'title' },
