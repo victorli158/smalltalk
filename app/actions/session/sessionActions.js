@@ -14,9 +14,10 @@ export const removeUser = () => ({
 
 export const signIn = (user) => (dispatch) => (
   APIUtil.signIn(user)
+    .then(resp => resp.json())
     .then((current_user) => {
-      console.log(current_user);
       dispatch(receiveUser(current_user));
+      console.log(current_user);
     })
     .catch((err)=>{
       console.log('hi');
@@ -32,7 +33,6 @@ export const signUp = (user) => (dispatch) => {
   APIUtil.signUp(user)
   .then(resp => resp.json())
   .then((json) => {
-    console.log(json);
     dispatch(receiveUser(json));
   })
   .catch((err)=>{
