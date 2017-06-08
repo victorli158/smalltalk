@@ -1,13 +1,46 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 export const signUp = (user) => (
-  axios.post('/signup', user)
+  fetch(
+    'http://localhost:8000/signup',
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        user
+      )
+    }
+  )
 );
 
 export const signOut = () => (
-  axios.delete('/session')
+  fetch(
+    'http://localhost:8000/session',
+    {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }
+  )
 );
 
 export const signIn = (user) => (
-  axios.post('/session')
+  fetch(
+    'http://localhost:8000/session',
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        user
+      )
+    }
+  )
 );

@@ -13,13 +13,37 @@ export const removeUser = () => ({
 });
 
 export const signIn = (user) => (dispatch) => (
-  APIUtil.signIn(user).then((current_user) => dispatch(receiveUser(current_user)))
+   APIUtil.signIn(user)
+    .then(resp => {
+      if(resp.ok){
+        resp.json()
+        .then((current_user) => {
+          dispatch(receiveUser(current_user));
+          console.log(current_user);
+        });
+      }
+      else{
+        console.log('ERRORS');
+      }
+    })
 );
 
 export const signOut = () => (dispatch) => (
   APIUtil.signOut().then(() => dispatch(removeUser))
 );
 
-export const signUp = (user) => (dispatch) => (
-  APIUtil.signUp(user).then((current_user) => dispatch(receiveUser(current_user)))
-);
+export const signUp = (user) => (dispatch) => {
+  return APIUtil.signUp(user)
+  .then(resp => {
+    if (resp.ok){
+      resp.json()
+      .then((json) => {
+        dispatch(receiveUser(json));
+      });
+    }
+    else{
+      console.log('ERRORS');
+    }
+  });
+
+};
