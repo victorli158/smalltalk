@@ -29,13 +29,12 @@ export const signOut = () => (dispatch) => (
 );
 
 export const signUp = (user) => (dispatch) => {
-  console.log(user);
-  APIUtil.signUp(user).then((current_user) => {
-    console.log(current_user);
-    dispatch(receiveUser(current_user));
+  APIUtil.signUp(user)
+  .then(resp => resp.json())
+  .then((json) => {
+    console.log(json);
+    dispatch(receiveUser(json));
   })
   .catch((err)=>{
-    console.log('hi');
-    console.log(err);
   });
 };
