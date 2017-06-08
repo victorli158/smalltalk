@@ -15,6 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 class SignUp(APIView):
     @csrf_exempt
     def post(self, request, format='json'):
+        pdb.set_trace()
         username = request.data["username"]
         email = request.data["email"]
         password = request.data["password"]
