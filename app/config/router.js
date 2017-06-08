@@ -9,19 +9,18 @@ import SignUpContainer from '../screens/userHandling/SignUpContainer';
 
 
 export const HomeStack = StackNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: ({ navigation }) => ({
-      title: 'PlanIt',
-    })
-  },
   Base: {
     screen: Base,
     navigationOptions: ({ navigation }) => ({
       title: 'Base',
     })
   },
-
+  Home: {
+    screen: Home,
+    navigationOptions: ({ navigation }) => ({
+      title: 'PlanIt',
+    })
+  },
   Login: {
     screen: LoginContainer,
     navigationOptions: ({ navigation }) => ({
