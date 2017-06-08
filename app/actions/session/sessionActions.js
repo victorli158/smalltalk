@@ -23,7 +23,10 @@ export const signIn = (user) => (dispatch) => (
         });
       }
       else{
-        console.log('ERRORS');
+        resp.json()
+        .then((err)=>{
+          console.log(err.errors);
+        });
       }
     })
 );
@@ -42,7 +45,10 @@ export const signUp = (user) => (dispatch) => {
       });
     }
     else{
-      console.log('ERRORS');
+      resp.json()
+      .then((err)=>{
+        console.log(err);
+      });
     }
   });
 
