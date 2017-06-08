@@ -11,3 +11,13 @@ class Trip (models.Model):
 
     def __str__(self):
         return self.title
+
+class Event (models.Model):
+    title = models.CharField(max_length=50)
+    location = models.CharField(max_length=100)
+    start_time = models.DateTimeField
+    end_time = models.DateTimeField
+    users = models.ManyToManyField(User)
+
+    def __str__(self):
+        return self.title
