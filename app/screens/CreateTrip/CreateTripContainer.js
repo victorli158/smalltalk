@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+
+import { createTrip } from '../../actions/trip/tripActions';
 import CreateTrip from './CreateTrip';
-import { createTrip } from '../actions/trip/tripActions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 
 
-class Base extends React.Component {
+class Login extends React.Component {
   constructor(props){
     super(props);
 
@@ -24,4 +24,4 @@ class Base extends React.Component {
   }
 }
 
-export default Base;
+export default Login;
