@@ -12,24 +12,26 @@ def ws_add(message):
     #TODO ADD USER AUTHENTIXATION HERE
     # if request.user.is_authenticated:
     message.reply_channel.send({"accept": True})
-
     #get all chatrooms
     connections = Connection.objects.all()
     #see if there are any chatrooms that are open (only 1 user)
     for connection in connections:
         if connection.users.count() == 1:
-            connection.users.add(message.user)
+            connection.users.add(message.user.pk)
             Group(str(connection.pk)).add(message.reply_channel)
             return
 
     #if no open chats
     connection = Connection()
-    connections.users.add(message.user)
+    connection.save()
+    connection.users.add(message.user.pk)
+    Group(str(connection.pk)).add(message.reply_channel)
 
 # Connected to websocket.receive
 @channel_session_user
 def ws_message(message):
-    Group("chat").send({
+    #LOOK INTO LOOKIN UP USER BY REPLY CHANNEL HERE, otherwise find group by user id
+    Group().send({
         "text": "[%s] %s" % (message.user.username, message.content['text']),
     })
 
