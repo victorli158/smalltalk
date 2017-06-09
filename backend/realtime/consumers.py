@@ -17,7 +17,7 @@ def ws_add(message):
     connections = Connection.objects.all()
     #see if there are any chatrooms that are open (only 1 user)
     for connection in connections:
-        if connection.users.count():
+        if connection.users.count() == 1:
             connection.users.add(message.user)
             Group(str(connection.pk)).add(message.reply_channel)
             return
@@ -37,4 +37,9 @@ def ws_message(message):
 @channel_session_user
 def ws_disconnect(message):
     #TODO MAKE SURE TO CHECK IF THE SIZE OF GROUP IS EMPTY, IF SO DELETE GROUP
-    Group("chat").discard(message.reply_channel)
+    connection_id = message.user.pk
+    connection = Connection.objects.get(pk=connection_id)
+    connection.users.remove(message.user)
+    Group(str(connection.pk)).discard(message.reply_channel)
+    if connection.users.count() == 0:
+        connection.delete()
