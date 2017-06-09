@@ -1,6 +1,4 @@
-# PlanIt
-
-[Github repo](https://github.com/victorli158/hello-world)
+# Friends4U
 
 ## Background/Overview
 This app will allow users to connect with friends to plan trips around the world.  Trip planning will include links to hotel reservations, flight dates, and event information that will be extracted from a Yelp API response. In order to use the Yelp API, we will allow users to pick the city that the event will take place in with Google Maps API.  Once we have this location, we will use Yelp API’s searchable feature so users can see the options that are available to them in the area their event is taking place based on search box input.  We will allow users in the group to edit the itinerary.
