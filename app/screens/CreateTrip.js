@@ -43,7 +43,6 @@ class CreateTrip extends Component {
   }
 
   render() {
-    console.log("this.props.createTripFunc" + this.props.createTrip);
     return (
       <KeyboardAwareScrollView style={{ backgroundColor: colors.background }}>
         {fields.map((field, index) => (

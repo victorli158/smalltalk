@@ -6,22 +6,27 @@ import Home from '../screens/Home';
 import Base from '../screens/userHandling/Base';
 import LoginContainer from '../screens/userHandling/LoginContainer';
 import SignUpContainer from '../screens/userHandling/SignUpContainer';
-
+import Splash from '../screens/Splash';
 
 export const HomeStack = StackNavigator({
+  Splash: {
+    screen: Splash,
+    navigationOptions: (navigation) => ({
+      title: 'Splash'
+    })
+  },
+  Home: {
+    screen: Home,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Friends4U',
+    })
+  },
   Base: {
     screen: Base,
     navigationOptions: ({ navigation }) => ({
       title: 'Base',
     })
   },
-  Home: {
-    screen: Home,
-    navigationOptions: ({ navigation }) => ({
-      title: 'PlanIt',
-    })
-  },
-
   Login: {
     screen: LoginContainer,
     navigationOptions: ({ navigation }) => ({
@@ -36,5 +41,5 @@ export const HomeStack = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: 'Create Trip',
     })
-  }
+  },
 });

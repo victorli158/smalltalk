@@ -16,12 +16,10 @@ class Home extends Component {
   }
 
   render() {
-    
+
     return (
       <View>
         <PrimaryButton label="Create Trip" onPress={this.handleCreatePress} />
-        <Text>Upcoming Trips</Text>
-
       </View>
     );
   }
