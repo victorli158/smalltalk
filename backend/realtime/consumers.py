@@ -31,7 +31,9 @@ def ws_add(message):
 @channel_session_user
 def ws_message(message):
     #LOOK INTO LOOKIN UP USER BY REPLY CHANNEL HERE, otherwise find group by user id
-    Group().send({
+    user = message.user
+    connection = user.connection_set.first()
+    Group(str(connection.pk)).send({
         "text": "[%s] %s" % (message.user.username, message.content['text']),
     })
 
