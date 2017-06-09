@@ -13,7 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 class SignUp(APIView):
-    @csrf_exempt
+
     def post(self, request, format='json'):
         username = request.data["username"]
         email = request.data["email"]
@@ -34,6 +34,10 @@ class SignUp(APIView):
         serializer = UserSerializer(user)
         return JsonResponse(serializer.data, safe=False)
 
+    def get(self, request, format='json'):
+        user = request.user
+        serializer = UserSerializer(user)
+        return JsonResponse(serializer.data, safe=False)
 
 class Session(APIView):
 
@@ -52,3 +56,12 @@ class Session(APIView):
     def delete(self, request, format='json'):
         logout(request)
         return JsonResponse({'errors': 'none'})
+
+    def get(self, request, format='json'):
+        username = "sean"
+        password = "basketball8"
+        email = "example321@ucsc.edu"
+        user = authenticate(request, username=username, password=password)
+        login(request, user)
+        serializer = UserSerializer(user)
+        return JsonResponse(serializer.data, safe=False)

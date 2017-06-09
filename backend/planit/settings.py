@@ -41,11 +41,21 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'rest_framework.authtoken',
     'trips.apps.TripsConfig',
+    'realtime.apps.RealtimeConfig',
+    'channels',
 ]
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "realtime.routing.channel_routing",
+    },
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     )
 }
 

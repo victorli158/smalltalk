@@ -3,6 +3,7 @@ from trips.serializers import TripSerializer
 from django.http import Http404, JsonResponse
 from rest_framework.views import APIView
 from rest_framework import status
+import pdb
 
 
 class TripList(APIView):
