@@ -33,8 +33,8 @@ def ws_add(message):
 def ws_message(message):
     #LOOK INTO LOOKIN UP USER BY REPLY CHANNEL HERE, otherwise find group by user id
     user = message.user
+    #find channel that you're logged in on
     connection = user.connection_set.first()
-    pdb.set_trace()
     data = json.loads(message['text'])
     Group(str(connection.pk)).send({
         "text": json.dumps(data)
@@ -43,10 +43,13 @@ def ws_message(message):
 # Connected to websocket.disconnect
 @channel_session_user
 def ws_disconnect(message):
-    #TODO MAKE SURE TO CHECK IF THE SIZE OF GROUP IS EMPTY, IF SO DELETE GROUP
-    connection_id = message.user.pk
+    connection_id = message.user.connection_set.first().pk
     connection = Connection.objects.get(pk=connection_id)
+    #TODO : handle logged in user in two separate browsers issue with deleting from connection
+    #when still in group
     connection.users.remove(message.user)
     Group(str(connection.pk)).discard(message.reply_channel)
     if connection.users.count() == 0:
         connection.delete()
+    else:
+        Group(str(connection.pk)).send({"text": json.dumps({'disconnected': 'true'})})
