@@ -9,7 +9,6 @@ class Splash extends React.Component {
     super(props);
     this.switch = this.switch.bind(this);
     this.Transition = createTransition();
-    this.navigate = this.props.navigation;
   }
 
   componentDidMount() {
@@ -20,11 +19,11 @@ class Splash extends React.Component {
     this.Transition.show(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Button
-          onPress={() => this.navigate.navigate('Login')}
+          onPress={() => this.props.navigation.navigate('Login')}
           title="Login"
         />
         <Button
-          onPress={() => this.navigate.navigate('SignUp')}
+          onPress={() => this.props.navigation.navigate('SignUp')}
           title="Sign Up"
         />
       </View>

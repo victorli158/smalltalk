@@ -6,7 +6,7 @@ import { AppRegistry } from 'react-native';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { Text, View } from 'react-native';
-import { HomeStack } from './config/router';
+import { SplashStack } from './config/router';
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__});
 
@@ -23,9 +23,10 @@ const configureStore = (initialState) => {
 const store = configureStore({});
 
 const App = () => {
+  let tabBarHeight = 0;
   return(
     <Provider store={store}>
-      <HomeStack />
+      <SplashStack />
     </Provider>)
   ;
 };

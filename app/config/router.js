@@ -1,45 +1,57 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import CreateTripContainer from '../screens/CreateTrip/CreateTripContainer';
 import Home from '../screens/Home/Home';
-import Base from '../screens/userHandling/Base';
+import Splash from '../screens/Splash';
 import LoginContainer from '../screens/userHandling/LoginContainer';
 import SignUpContainer from '../screens/userHandling/SignUpContainer';
-import Splash from '../screens/Splash';
+import StartChatContainer from '../screens/StartChat/StartChatContainer';
 
 export const HomeStack = StackNavigator({
-  Splash: {
-    screen: Splash,
-    navigationOptions: (navigation) => ({
-      title: 'Splash'
-    })
-  },
-  Base: {
-    screen: Base,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Base',
-    })
-  },
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
-      title: 'PlanIt',
+      title: 'Home',
+      headerLeft: null
+    })
+  },
+  StartChat: {
+    screen: StartChatContainer,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Start Chat',
+    })
+  }
+},
+{
+  headerMode: 'screen'
+});
+
+export const SplashStack = StackNavigator({
+  Splash: {
+    screen: Splash,
+    navigationOptions: ({ navigation }) => ({
+      header: null
     })
   },
   Login: {
     screen: LoginContainer,
     navigationOptions: ({ navigation }) => ({
-      title: 'Login',
+      header: null
     })
   },
-  SignUp: {
+  Signup: {
     screen: SignUpContainer,
-  },
-  CreateTrip: {
-    screen: CreateTripContainer,
     navigationOptions: ({ navigation }) => ({
-      title: 'Create Trip',
+      header: null
+    })
+  },
+  HomeStack: {
+    screen: HomeStack,
+    navigationOptions: ({ navigation }) => ({
+      header: null
     })
   }
+},
+{
+  headerMode: 'screen'
 });

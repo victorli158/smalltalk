@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-
 import colors from '../../config/colors';
 import { TextInput } from '../../components/TextInput';
 import { PrimaryButton } from '../../components/Buttons';
+import { HomeStack } from '../../config/router';
 
 const fields = [
   { placeholder: 'Enter username..', stateKey: 'username' },
@@ -15,9 +15,8 @@ const fields = [
 class SignUp extends React.Component {
   constructor(props){
     super(props);
-
     this.state = {};
-
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onInputChange = (text, stateKey) => {
@@ -27,8 +26,12 @@ class SignUp extends React.Component {
   }
 
   handleSubmit = () => {
-    this.props.signUp(this.state)
+    this.props.signUp(this.state).then(
+      () => this.props.navigation.navigate('Home')
+    );
   }
+
+
 
   render(){
     return(

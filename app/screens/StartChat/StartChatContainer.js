@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { createTrip } from '../../actions/trip/tripActions';
-import CreateTrip from './CreateTrip';
+import StartChat from './StartChat';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CreateTrip);
+)(StartChat);
