@@ -4,6 +4,7 @@ from channels import Channel, Group
 from realtime.models import Connection
 from channels.sessions import channel_session
 from channels.auth import channel_session_user, channel_session_user_from_http
+import json
 
 # Connected to websocket.connect
 @channel_session_user_from_http
@@ -33,8 +34,10 @@ def ws_message(message):
     #LOOK INTO LOOKIN UP USER BY REPLY CHANNEL HERE, otherwise find group by user id
     user = message.user
     connection = user.connection_set.first()
+    pdb.set_trace()
+    data = json.loads(message['text'])
     Group(str(connection.pk)).send({
-        "text": "[%s] %s" % (message.user.username, message.content['text']),
+        "text": json.dumps(data)
     })
 
 # Connected to websocket.disconnect
