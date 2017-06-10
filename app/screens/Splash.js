@@ -23,7 +23,7 @@ class Splash extends React.Component {
           title="Login"
         />
         <Button
-          onPress={() => this.props.navigation.navigate('SignUp')}
+          onPress={() => this.props.navigation.navigate('Signup')}
           title="Sign Up"
         />
       </View>

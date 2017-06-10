@@ -27,11 +27,12 @@ class SignUp extends React.Component {
 
   handleSubmit = () => {
     this.props.signUp(this.state).then(
-      () => this.props.navigation.navigate('Home')
+      () => this.props.navigation.navigate('HomeStack')
+    ).catch((error) => {
+      console.log("Error in sign up");
+      alert(error.message);
     );
   }
-
-
 
   render(){
     return(

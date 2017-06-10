@@ -26,8 +26,11 @@ class Login extends React.Component {
 
   handleSubmit = () => {
     this.props.signIn(this.state).then(
-      () => this.props.navigation.navigate('Home')
-    );
+      () => this.props.navigation.navigate('HomeStack')
+    ).catch((error) =>{
+      console.log("Error in sign in");
+      alert(error.message);
+    });
   }
 
 
