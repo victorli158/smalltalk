@@ -26,10 +26,6 @@ class StartChat extends Component {
       <ScrollView style={{ backgroundColor: colors.background }}>
 
         <View style={{ marginTop: 20 }}>
-          <TopicButton
-            label=
-            onPress=
-          >
           <PrimaryButton
             label="Chat Now!"
             onPress={() => this.handleClick(0, true)}
