@@ -6,11 +6,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    borderRadius: 10,
   },
   primaryButton: {
-    borderColor: colors.border,
-    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary,
     backgroundColor: colors.primary,
+    borderWidth: 5,
+    borderRadius: 10,
   },
   primaryButtonText: {
     textAlign: 'center',

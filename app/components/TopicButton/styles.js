@@ -6,11 +6,14 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    borderRadius: 10,
+
   },
   TopicButton: {
-    borderColor: colors.border,
-    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.secondary,
     backgroundColor: colors.secondary,
+    borderWidth: 5,
+    borderRadius: 10,
   },
   TopicButtonText: {
     textAlign: 'center',
