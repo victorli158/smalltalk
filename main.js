@@ -54,6 +54,8 @@ class Main extends Component {
       });
     });
 
+
+    //Will be sent on button press
     pc.createOffer((desc) => {
       pc.setLocalDescription(desc, () => {
         // Send pc.localDescription to peer
@@ -61,12 +63,26 @@ class Main extends Component {
       }, (e) => { throw e; });
     }, (e) => { throw e; });
 
-    pc.createAnswer((desc) => {
-      pc.setLocalDescription(desc, () => {
-        // Send pc.localDescription to peer
-        console.log('pc.setLocalDescription');
+
+    const handleOffer = (offer, name) {
+      cononectedUser = name;
+      pc.setRemoteDescription(new RTCSessionDescription(offer));
+
+      pc.createAnswer((desc) => {
+        pc.setLocalDescription(desc, () => {
+          // Send pc.localDescription to peer
+          console.log('pc.setLocalDescription');
+        }, (e) => { throw e; });
       }, (e) => { throw e; });
-    }, (e) => { throw e; });
+    }
+
+    const handleAnswer = (answer) => {
+      pc.setRemoteDescription(new RTCSessionDescription(answer));
+    };
+
+    const handleCandidate = (candidate) => {
+      pc.addIceCandidate(new RTCIceCandidate(candidate))
+    }
 
     pc.onicecandidate = (event) => {
       // send event.candidate to peer
