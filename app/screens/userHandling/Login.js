@@ -32,7 +32,6 @@ class Login extends React.Component {
     });
   }
 
-
   render(){
     return(
       <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>

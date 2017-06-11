@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Image } from 'react-native';
+import { Button, View, Image, Text } from 'react-native';
 import { createTransition } from 'react-native-transition';
 
 import colors from '../config/colors';
@@ -36,8 +36,9 @@ class Splash extends React.Component {
         <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
           <Image
             source={require('../assets/icon.png')}
-            style={{width: 300, height: 190.3383}}
+            style={{width: 300, height: 190.3383, marginBottom: 20}}
           />
+        <Text style={{color: colors.primary, fontSize: 36, fontWeight: 'bold'}}>Friends4U</Text>
         </View>
       </this.Transition>
     );
