@@ -10,6 +10,8 @@ import {
     getUserMedia,
 } from 'react-native-webrtc';
 
+
+
 class Main extends Component {
     // Initial state
     state = {
@@ -54,6 +56,31 @@ class Main extends Component {
       });
     });
 
+    //handling messages
+    pc.onmessage = (message) => {
+      console.log("Message:", message.data);
+
+      const data = JSON.parse(message.data);
+
+      switch(data.type) {
+        case "offer":
+          handleOffer(data.offer, data.name)
+          break;
+        case "answer":
+          handleAnswer(data.answer)
+          break;
+        case "candidate":
+          handleCandidate(data.candidate)
+          break;
+        default:
+          break;
+      }
+    };
+
+    //send JSON messages
+    const send = (message) => {
+      pc.send(JSON.stringify(message));
+    };
 
     //Will be sent on button press
     pc.createOffer((desc) => {
