@@ -19,6 +19,7 @@ export const HomeStack = StackNavigator({
     screen: StartChatContainer,
     navigationOptions: ({ navigation }) => ({
       title: 'Start Chat',
+      headerLeft: null,
     })
   }
 },

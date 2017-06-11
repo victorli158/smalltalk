@@ -4,12 +4,12 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import styles from './styles';
 
 const TopicButton = ({ label, onPress }) => (
-  <View style={styles.primaryButtonContainer}>
+  <View style={styles.TopicButtonContainer}>
     <TouchableOpacity
       onPress={onPress}
-      style={styles.primaryButton}
+      style={styles.TopicButton}
     >
-      <Text style={styles.primaryButtonText}>{label}</Text>
+      <Text style={styles.TopicButtonText}>{label}</Text>
     </TouchableOpacity>
   </View>
 );

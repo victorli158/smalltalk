@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import colors from '../../config/colors';
 import { TextInput } from '../../components/TextInput';
-import { PrimaryButton } from '../../components/Buttons';
+import { PrimaryButton } from '../../components/PrimaryButton';
 import { HomeStack } from '../../config/router';
 
 const fields = [
@@ -29,9 +29,8 @@ class SignUp extends React.Component {
     this.props.signUp(this.state).then(
       () => this.props.navigation.navigate('HomeStack')
     ).catch((error) => {
-      console.log("Error in sign up");
       alert(error.message);
-    );
+    });
   }
 
   render(){

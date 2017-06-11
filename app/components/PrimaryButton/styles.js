@@ -20,10 +20,4 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
   },
-  topicButton: {
-
-  },
-  topicButtonChecked: {
-    
-  },
 });

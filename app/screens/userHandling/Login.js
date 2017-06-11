@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import colors from '../../config/colors';
 import { TextInput } from '../../components/TextInput';
-import { PrimaryButton } from '../../components/Buttons';
+import { PrimaryButton } from '../../components/PrimaryButton';
 import { HomeStack } from '../../config/router';
 
 const fields = [
@@ -27,8 +27,7 @@ class Login extends React.Component {
   handleSubmit = () => {
     this.props.signIn(this.state).then(
       () => this.props.navigation.navigate('HomeStack')
-    ).catch((error) =>{
-      console.log("Error in sign in");
+    ).catch((error) => {
       alert(error.message);
     });
   }

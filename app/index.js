@@ -23,7 +23,6 @@ const configureStore = (initialState) => {
 const store = configureStore({});
 
 const App = () => {
-  let tabBarHeight = 0;
   return(
     <Provider store={store}>
       <SplashStack />

@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
+import Spinner from 'react-native-spinkit';
 
 import { TextInput } from '../../components/TextInput';
-import { PrimaryButton, TopicButton } from '../../components/Buttons';
+import { PrimaryButton } from '../../components/PrimaryButton';
+import { TopicButton } from '../../components/TopicButton';
 import colors from '../../config/colors';
 
 class StartChat extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClick = this.handleClick.bind(this);
-    this.handleCheck = this.handleCheck.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
-
-  handleCheck() {
-
-  }
-
-  handleClick() {
-
+  handleCancel() {
+    this.props.navigation.navigate('Home');
   }
 
   render() {
     return (
-      <ScrollView style={{ backgroundColor: colors.background }}>
-
-        <View style={{ marginTop: 20 }}>
+      <ScrollView>
+        <Spinner/>
+        <View>
           <PrimaryButton
-            label="Chat Now!"
-            onPress={() => this.handleClick(0, true)}
+            label="Cancel"
+            onPress={this.handleCancel}
           />
         </View>
       </ScrollView>
