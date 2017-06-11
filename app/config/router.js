@@ -8,6 +8,13 @@ import SignUpContainer from '../screens/userHandling/SignUpContainer';
 import StartChatContainer from '../screens/StartChat/StartChatContainer';
 
 export const HomeStack = StackNavigator({
+  StartChat: {
+    screen: StartChatContainer,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Start Chat',
+      headerLeft: null,
+    })
+  },
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
@@ -15,13 +22,6 @@ export const HomeStack = StackNavigator({
       headerLeft: null
     })
   },
-  StartChat: {
-    screen: StartChatContainer,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Start Chat',
-      headerLeft: null,
-    })
-  }
 },
 {
   headerMode: 'screen'

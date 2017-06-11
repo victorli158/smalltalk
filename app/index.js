@@ -6,7 +6,7 @@ import { AppRegistry } from 'react-native';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { Text, View } from 'react-native';
-import { SplashStack } from './config/router';
+import { SplashStack, HomeStack } from './config/router';
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__});
 
@@ -25,7 +25,7 @@ const store = configureStore({});
 const App = () => {
   return(
     <Provider store={store}>
-      <SplashStack />
+      <HomeStack />
     </Provider>)
   ;
 };

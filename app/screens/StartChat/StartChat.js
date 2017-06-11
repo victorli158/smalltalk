@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import Spinner from 'react-native-spinkit';
 
+import { QueueSpinner } from '../../components/QueueSpinner';
 import { TextInput } from '../../components/TextInput';
 import { PrimaryButton } from '../../components/PrimaryButton';
 import { TopicButton } from '../../components/TopicButton';
@@ -20,7 +20,7 @@ class StartChat extends Component {
   render() {
     return (
       <ScrollView>
-        <Spinner/>
+        <QueueSpinner/>
         <View>
           <PrimaryButton
             label="Cancel"
