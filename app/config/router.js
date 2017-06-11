@@ -6,13 +6,18 @@ import Splash from '../screens/Splash';
 import LoginContainer from '../screens/userHandling/LoginContainer';
 import SignUpContainer from '../screens/userHandling/SignUpContainer';
 import StartChatContainer from '../screens/StartChat/StartChatContainer';
+import colors from './colors';
 
 export const HomeStack = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
       title: 'Home',
-      headerLeft: null
+      headerLeft: null,
+      headerTintColor: "white",
+      headerStyle: {
+        backgroundColor: colors.primary
+      }
     })
   },
   StartChat: {
@@ -20,6 +25,10 @@ export const HomeStack = StackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: 'Start Chat',
       headerLeft: null,
+      headerTintColor: "white",
+      headerStyle: {
+        backgroundColor: colors.primary
+      }
     })
   },
 },
@@ -38,11 +47,19 @@ export const SplashStack = StackNavigator({
   Login: {
     screen: LoginContainer,
     navigationOptions: ({ navigation }) => ({
+      headerTintColor: "white",
+      headerStyle: {
+        backgroundColor: colors.primary
+      }
     })
   },
   Signup: {
     screen: SignUpContainer,
     navigationOptions: ({ navigation }) => ({
+      headerTintColor: "white",
+      headerStyle: {
+        backgroundColor: colors.primary
+      }
     })
   },
   HomeStack: {

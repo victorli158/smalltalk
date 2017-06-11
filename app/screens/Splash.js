@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, View, Image, Text } from 'react-native';
 import { createTransition } from 'react-native-transition';
 
+import { PrimaryButton } from '../components/PrimaryButton';
 import colors from '../config/colors';
 
 class Splash extends React.Component {
@@ -18,13 +19,13 @@ class Splash extends React.Component {
   switch() {
     this.Transition.show(
       <View style={{backgroundColor: colors.background, flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Button
+        <PrimaryButton
           onPress={() => this.props.navigation.navigate('Login')}
-          title="Login"
+          label="Login"
         />
-        <Button
+        <PrimaryButton
           onPress={() => this.props.navigation.navigate('Signup')}
-          title="Sign Up"
+          label="Sign Up"
         />
       </View>
     );
@@ -38,7 +39,7 @@ class Splash extends React.Component {
             source={require('../assets/icon.png')}
             style={{width: 300, height: 190.3383, marginBottom: 20}}
           />
-        <Text style={{color: colors.primary, fontSize: 36, fontWeight: 'bold'}}>Friends4U</Text>
+          <Text style={{color: colors.primary, fontSize: 36, fontWeight: 'bold'}}>Friends4U</Text>
         </View>
       </this.Transition>
     );

@@ -10,7 +10,7 @@ export default StyleSheet.create({
   primaryButton: {
     borderColor: colors.border,
     borderWidth: StyleSheet.hairlineWidth,
-    backgroundColor: colors.link,
+    backgroundColor: colors.primary,
   },
   primaryButtonText: {
     textAlign: 'center',

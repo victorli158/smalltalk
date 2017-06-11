@@ -4,5 +4,5 @@ export default {
   link: '#007aff',
   primary: '#fa1b36',
   secondary: '#c02544',
-  tertiary: '#f74f23e'
+  tertiary: '#f74f2e'
 };
