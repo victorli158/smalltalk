@@ -10,6 +10,7 @@ import {
     getUserMedia,
 } from 'react-native-webrtc';
 
+const connection = new WebSocket('ws://localhost:9090');
 
 
 class Main extends Component {
@@ -79,7 +80,7 @@ class Main extends Component {
 
     //send JSON messages
     const send = (message) => {
-      pc.send(JSON.stringify(message));
+      connection.send(JSON.stringify(message));
     };
 
     //Will be sent on button press
@@ -92,7 +93,7 @@ class Main extends Component {
 
 
     const handleOffer = (offer, name) => {
-      cononectedUser = name;
+      connectedUser = name;
       pc.setRemoteDescription(new RTCSessionDescription(offer));
 
       pc.createAnswer((desc) => {
@@ -117,7 +118,7 @@ class Main extends Component {
     pc.onicecandidate = (event) => {
       // send event.candidate to peer
       if (event.candidate) {
-        pc.send(event.candidate)
+        send(event.candidate)
       } else {
         console.log('All ICE candidates have been exhausted.')
       }
