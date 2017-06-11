@@ -91,14 +91,17 @@ class Main extends Component {
     }, (e) => { throw e; });
 
 
-    const handleOffer = (offer, name) {
+    const handleOffer = (offer, name) => {
       cononectedUser = name;
       pc.setRemoteDescription(new RTCSessionDescription(offer));
 
       pc.createAnswer((desc) => {
         pc.setLocalDescription(desc, () => {
           // Send pc.localDescription to peer
-          console.log('pc.setLocalDescription');
+          send({
+            type: 'answer',
+            answer: desc
+          });
         }, (e) => { throw e; });
       }, (e) => { throw e; });
     }
@@ -113,7 +116,11 @@ class Main extends Component {
 
     pc.onicecandidate = (event) => {
       // send event.candidate to peer
-      console.log('onicecandidate', event);
+      if (event.candidate) {
+        pc.send(event.candidate)
+      } else {
+        console.log('All ICE candidates have been exhausted.')
+      }
     };
   }
 
