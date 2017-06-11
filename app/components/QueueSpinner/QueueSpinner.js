@@ -12,7 +12,7 @@ class QueueSpinner extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Spinner style={styles.spinner} isVisible={true} size={100} type='Wave' color='red'/>
+        <Spinner style={styles.spinner} isVisible={true} size={100} type='FadingCircleAlt' color='#ff0000'/>
       </View>
     );
   }

@@ -3,10 +3,9 @@ import colors from '../../config/colors';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
   },
   spinner: {
     marginBottom: 50

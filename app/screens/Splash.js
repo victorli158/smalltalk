@@ -17,7 +17,7 @@ class Splash extends React.Component {
 
   switch() {
     this.Transition.show(
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{backgroundColor: colors.background, flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Button
           onPress={() => this.props.navigation.navigate('Login')}
           title="Login"
@@ -32,11 +32,11 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <this.Transition>
-        <View>
+      <this.Transition style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
           <Image
-            source={require('../assets/friendslogo.png')}
-            style={{width: 400, height: 400}}
+            source={require('../assets/icon.png')}
+            style={{width: 300, height: 190.3383}}
           />
         </View>
       </this.Transition>

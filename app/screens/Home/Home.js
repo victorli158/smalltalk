@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text } from 'react-native';
 
 import colors from '../../config/colors';
 import { PrimaryButton } from '../../components/PrimaryButton';
@@ -73,8 +73,8 @@ class Home extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <Text style={{marginBottom: 20}}>
+      <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{marginBottom: 20, fontSize: 20, fontWeight: 'bold'}}>
           Hi, {this.state.users[0].username}!
         </Text>
         <TopicButton
@@ -98,7 +98,7 @@ class Home extends Component {
           onPress={this.handleGamingPress}
         />
         <PrimaryButton label="Start Chat" onPress={this.handleQueuePress} />
-      </ScrollView>
+      </View>
     );
   }
 }
