@@ -25,14 +25,14 @@ class SignUp extends React.Component {
     this.setState(mod);
   }
 
-  handleSubmit = () => {
-    this.props.signUp(this.state).then(
-      () => this.props.navigation.navigate('HomeStack')
-    ).catch((error) => {
-      console.log("Error in sign up");
-      alert(error.message);
-    );
-  }
+  // handleSubmit = () => {
+  //   this.props.signUp(this.state).then(
+  //     () => this.props.navigation.navigate('HomeStack')
+  //   ).catch((error) => {
+  //     console.log("Error in sign up");
+  //     alert(error.message);
+  //   );
+  // }
 
   render(){
     return(
