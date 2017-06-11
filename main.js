@@ -53,7 +53,15 @@ class Main extends Component {
         throw error;
       });
     });
+
     pc.createOffer((desc) => {
+      pc.setLocalDescription(desc, () => {
+        // Send pc.localDescription to peer
+        console.log('pc.setLocalDescription');
+      }, (e) => { throw e; });
+    }, (e) => { throw e; });
+
+    pc.createAnswer((desc) => {
       pc.setLocalDescription(desc, () => {
         // Send pc.localDescription to peer
         console.log('pc.setLocalDescription');
