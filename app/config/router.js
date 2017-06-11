@@ -40,7 +40,10 @@ export const SplashStack = StackNavigator({
   Splash: {
     screen: Splash,
     navigationOptions: ({ navigation }) => ({
-      header: null,
+      headerTintColor: "white",
+      headerStyle: {
+        backgroundColor: colors.primary
+      },
       title: 'Friends4U'
     })
   },
