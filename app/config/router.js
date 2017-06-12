@@ -48,7 +48,7 @@ export const SplashStack = StackNavigator({
       headerStyle: {
         backgroundColor: colors.primary
       },
-      title: 'Friends4U'
+      title: 'Small Talk'
     })
   },
   Login: {

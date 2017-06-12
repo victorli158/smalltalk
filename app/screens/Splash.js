@@ -39,7 +39,7 @@ class Splash extends React.Component {
             source={require('../assets/icon.png')}
             style={{width: 300, height: 190.3383, marginBottom: 20}}
           />
-          <Text style={{color: colors.primary, fontSize: 36, fontWeight: 'bold'}}>Friends4U</Text>
+        <Text style={{color: colors.primary, fontSize: 36, fontWeight: 'bold'}}>Small Talk</Text>
         </View>
       </this.Transition>
     );

@@ -1,7 +1,7 @@
-# Friends4U
+# Small Talk
 
 ## Background/Overview
-Friends4U is a video stream app that allows users to connect to each other and chat. Sessions can either be between friends or between strangers who select common conversation topics prior to searching for a chat session.
+Small Talk is a video stream app that allows users to connect to each other and chat. Sessions can either be between friends or between strangers who select common conversation topics prior to searching for a chat session.
 
 ## Functionality & MVPs
 - [ ] User authentication
