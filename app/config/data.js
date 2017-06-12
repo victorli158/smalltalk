@@ -1,7 +1,7 @@
 export const users = [
   {
-    username: 'imles',
-    password: 'lesbicep',
-    email: 'imles@les.com',
+    username: 'Michael23',
+    password: 'michaelbicep',
+    email: 'michael@michael.com',
   }
 ];
