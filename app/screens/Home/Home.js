@@ -68,7 +68,7 @@ class Home extends Component {
   }
 
   handleQueuePress() {
-    this.props.navigation.navigate('StartChat');
+    this.props.navigation.navigate('Chat');
   }
 
   render() {

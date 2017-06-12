@@ -2,7 +2,7 @@
 
 export const signUp = (user) => (
   fetch(
-    'http://localhost:8000/signup',
+    'https://flex-aa.herokuapp.com/signup',
     {
       method: 'POST',
       headers: {
@@ -18,7 +18,7 @@ export const signUp = (user) => (
 
 export const signOut = () => (
   fetch(
-    'http://localhost:8000/session',
+    'https://flex-aa.herokuapp.com/session',
     {
       method: 'DELETE',
       headers: {
@@ -31,7 +31,7 @@ export const signOut = () => (
 
 export const signIn = (user) => (
   fetch(
-    'http://localhost:8000/session',
+    'https://flex-aa.herokuapp.com/session',
     {
       method: 'POST',
       headers: {
