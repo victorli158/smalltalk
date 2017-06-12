@@ -19,7 +19,6 @@ export default StyleSheet.create({
   TopicButtonText: {
     textAlign: 'center',
     paddingVertical: 15,
-    paddingHorizontal: 40,
     color: '#fff',
     fontSize: 14,
     fontWeight: '500',

@@ -7,6 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
     borderRadius: 10,
+    width: 175
   },
   primaryButton: {
     justifyContent: 'center',
@@ -15,6 +16,7 @@ export default StyleSheet.create({
     backgroundColor: colors.primary,
     borderWidth: 5,
     borderRadius: 10,
+    width: 175
   },
   primaryButtonText: {
     textAlign: 'center',
