@@ -2,9 +2,9 @@
 
 [Demo Page](https://seanperfecto.github.io/applandingpage/)
 
-![splash](http://res.cloudinary.com/nearbytes/image/upload/c_scale,h_600,q_100/v1497274540/Screen_Shot_2017-06-12_at_6.31.35_AM_tb5jyk.png)
-
-![categories](http://res.cloudinary.com/nearbytes/image/upload/c_scale,h_600,q_100/v1497274543/Screen_Shot_2017-06-12_at_6.34.24_AM_pumzjq.png)
+Splash screen              |  Home screen
+:-------------------------:|:-------------------------:
+![splash](http://res.cloudinary.com/nearbytes/image/upload/c_scale,h_500,q_100/v1497275168/Screen_Shot_2017-06-12_at_6.44.21_AM_okqvwf.png)  |  ![categories](http://res.cloudinary.com/nearbytes/image/upload/c_scale,h_500,q_100/v1497275169/Screen_Shot_2017-06-12_at_6.45.20_AM_zjucm0.png)
 
 Small Talk is a mobile video chat application that allows users to connect to other users via common subjects. With our category filters, our goal at Small Talk is to allow strangers to bond over similar interests.
 
