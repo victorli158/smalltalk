@@ -94,23 +94,21 @@ class Main extends Component {
 
         pc.setLocalDescription(offer);
       });
-    }
+    };
 
 
-    const handleOffer = (offer, name) => {
-      connectedUser = name;
+    const handleOffer = (offer) => {
       pc.setRemoteDescription(new RTCSessionDescription(offer));
 
       pc.createAnswer((answer) => {
-        pc.setLocalDescription(answer, () => {
-          // Send pc.localDescription to peer
-          send({
-            type: 'answer',
-            answer: answer
-          });
-        }, (e) => { throw e; });
-      }, (e) => { throw e; });
-    }
+        send({
+          type: 'answer',
+          answer
+        })
+      })
+
+      pc.setLocalDescription(answer);
+    };
 
     const handleAnswer = (answer) => {
       pc.setRemoteDescription(new RTCSessionDescription(answer));
