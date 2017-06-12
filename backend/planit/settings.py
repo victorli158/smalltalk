@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0',
                  'enigmatic-sierra-62355.herokuapp.com',
-                 '127.0.0.1',]
+                 '127.0.0.1',
+                 'friends4you.herokuapp.com',]
 
 
 # Application definition
@@ -96,6 +97,8 @@ WSGI_APPLICATION = 'planit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# Update database configuration with $DATABASE_URL.
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -106,6 +109,10 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
