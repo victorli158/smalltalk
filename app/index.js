@@ -25,7 +25,7 @@ const store = configureStore({});
 const App = () => {
   return(
     <Provider store={store}>
-      <SplashStack />
+      <HomeStack />
     </Provider>)
   ;
 };
