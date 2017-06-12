@@ -29,6 +29,7 @@ class SignUp extends React.Component {
     this.setState(mod);
   }
 
+
   usernameInvalid() {
     if (this.state.username === undefined || this.state.username === "") {
       return true;
