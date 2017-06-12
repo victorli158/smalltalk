@@ -1,6 +1,6 @@
 # Small Talk
 
-[Demo Page](https://www.google.com)
+[Demo Page](https://github.com/victorli158/smalltalk/)
 
 ![logo](http://res.cloudinary.com/dqr2mejhc/image/upload/c_scale,w_240/v1497230719/icon_a2orqx.png)
 
@@ -8,14 +8,17 @@ Small Talk is mobile video chat application that allows users to connect to othe
 
 ## Technologies Used
 
-The backend API was built using Python's Django framework while being connected to the frontend using React Native.
+The backend API was built using Python's Django framework while being connected to the frontend using React Native. Other technolgies implemented include:
+
+- `WebRTC`
+- `websockets`
 
 ## Features
 
 
 #### WebRTC
 
-LOREM IPSUM MAMA
+To establish a video and peer to peer connection, WebRTC was implemented on top of Django Channels.
 
 #### Django Channels
 
