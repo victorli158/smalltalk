@@ -1,30 +1,25 @@
-# Friends4U
+# Randcam
 
-## Background/Overview
-Friends4U is a video stream app that allows users to connect to each other and chat. Sessions can either be between friends or between strangers who select common conversation topics prior to searching for a chat session.
+[Demo Page](https://www.google.com)
 
-## Functionality & MVPs
-- [ ] User authentication
-- [ ] WebRTC video streaming between users
-- [ ] Users can add each other as friends
+![logo](http://res.cloudinary.com/dqr2mejhc/image/upload/c_scale,w_240/v1497230719/icon_a2orqx.png)
 
-## Technologies & Technical Challenges
+Randcam is mobile video chat application that allows users to connect to other users via common subjects. With our filtered categories, our goal at Randcam is to allow strangers to bond over similar interests.
 
-##### Backend: Python/Django
-##### Frontend: React-Native/JavaScript
+## Technologies Used
 
-## Accomplishments Over the Weekend:
+The backend API was built using Python's Django framework while being connected to the frontend using React Native.
 
- - Went through Python tutorials and got comfortable with the language
- - Configured Django on our laptops and went through an in-depth tutorial
- - Went through a class on Udemy on React Native to get comfortable with it
+## Features
 
-## Group Members & Work Breakdown
+#### Django Channels
 
-Backend Members: Sean Perfecto and Miles Hobby
+LOREM IPSUM MAMA
 
-Frontend Members: Victor Li and John Ballon
+#### WebRTC
 
-## Plan for getting users and reviews
-We will ask at least 10 of our friends to try out our application and leave good reviews.
-We will try to find an appropriate subreddit and ask the users for review feedback
+LOREM IPSUM MAMA
+
+## Future Implementations
+
+#### Friendships
