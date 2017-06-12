@@ -58,7 +58,7 @@ class Main extends Component {
     });
 
     //handling messages
-    pc.onmessage = (message) => {
+    connection.onmessage = (message) => {
       console.log("Message:", message.data);
 
       const data = JSON.parse(message.data);
@@ -84,24 +84,29 @@ class Main extends Component {
     };
 
     //Will be sent on button press
-    pc.createOffer((desc) => {
-      pc.setLocalDescription(desc, () => {
-        // Send pc.localDescription to peer
-        console.log('pc.setLocalDescription');
-      }, (e) => { throw e; });
-    }, (e) => { throw e; });
+    const startNegotiation = () => {
+      pc.createOffer((offer) => {
+
+        send({
+          type: 'offer',
+          offer
+        });
+
+        pc.setLocalDescription(offer);
+      });
+    }
 
 
     const handleOffer = (offer, name) => {
       connectedUser = name;
       pc.setRemoteDescription(new RTCSessionDescription(offer));
 
-      pc.createAnswer((desc) => {
-        pc.setLocalDescription(desc, () => {
+      pc.createAnswer((answer) => {
+        pc.setLocalDescription(answer, () => {
           // Send pc.localDescription to peer
           send({
             type: 'answer',
-            answer: desc
+            answer: answer
           });
         }, (e) => { throw e; });
       }, (e) => { throw e; });
