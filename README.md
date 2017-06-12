@@ -12,13 +12,19 @@ The backend API was built using Python's Django framework while being connected 
 
 ## Features
 
-#### Django Channels
-
-LOREM IPSUM MAMA
 
 #### WebRTC
 
 LOREM IPSUM MAMA
+
+#### Django Channels
+
+In order to implement WebRTC, it was necessary to set up a signaling server so that two
+users could establish a peer to peer connection. This involved implementing Django Channels, which
+handles WebSocket connections. Redis was used for the channel layer, and s Daphne interface server was used in order to support both HTTP and WebSocket requests. Additional single-threaded worker servers were also set up in order to speed up response time and prevent hanging.
+
+Upon the initial handshake, users are dynamically placed into chatrooms with each other (with a maximum of two users per chatroom).  A "connection" model was created to store these chatrooms in the database to maintain a reference to each chat and each user in the chat (via foreign keys). Because only the initial request resembles HTTP, and the reference to current user lives in the cookies sent over HTTP, it was necessary to extract a reference to current user upon this initial handshake to associate it with the WebSocket reply channel. When a second user enters a chat, a message is sent to the group to begin Peer to Peer negotiations, after which the channel simply relays messages between the two users to mediate WebRTC negotiations until a connection is established. When a chatroom becomes empty, it is destroyed.
+
 
 ## Future Implementations
 
