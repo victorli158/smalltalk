@@ -6,11 +6,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    borderRadius: 10,
   },
   primaryButton: {
-    borderColor: colors.border,
-    borderWidth: StyleSheet.hairlineWidth,
-    backgroundColor: colors.link,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: colors.primary,
+    backgroundColor: colors.primary,
+    borderWidth: 5,
+    borderRadius: 10,
   },
   primaryButtonText: {
     textAlign: 'center',
@@ -19,11 +23,5 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontWeight: '500',
-  },
-  topicButton: {
-
-  },
-  topicButtonChecked: {
-    
   },
 });

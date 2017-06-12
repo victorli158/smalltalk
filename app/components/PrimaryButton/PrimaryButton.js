@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, View } from 'react-native';
 
 import styles from './styles';
 
-const TopicButton = ({ label, onPress }) => (
+const PrimaryButton = ({ label, onPress }) => (
   <View style={styles.primaryButtonContainer}>
     <TouchableOpacity
       onPress={onPress}
@@ -14,4 +14,4 @@ const TopicButton = ({ label, onPress }) => (
   </View>
 );
 
-export default TopicButton;
+export default PrimaryButton;

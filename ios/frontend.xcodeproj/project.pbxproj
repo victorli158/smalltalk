@@ -50,6 +50,7 @@
 		77430C7D1EECDE2A000B9121 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 77430C7C1EECDE2A000B9121 /* libsqlite3.tbd */; };
 		77430C7F1EECDE33000B9121 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 77430C7E1EECDE33000B9121 /* libstdc++.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		D54F78881EEDC6D000B66DCB /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D54F78871EEDC6A200B66DCB /* libRNSpinkit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		D54F78861EEDC6A200B66DCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D54F78691EEDC6A200B66DCB /* RNSpinkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D42CB3511B2538DE00FD0AE2;
+			remoteInfo = RNSpinkit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -302,6 +310,7 @@
 		77430C7E1EECDE33000B9121 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		D54F78691EEDC6A200B66DCB /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSpinkit.xcodeproj; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				77430C7F1EECDE33000B9121 /* libstdc++.tbd in Frameworks */,
 				77430C7D1EECDE2A000B9121 /* libsqlite3.tbd in Frameworks */,
 				77430C7B1EECDE22000B9121 /* libc.tbd in Frameworks */,
@@ -328,6 +338,7 @@
 				77430C6F1EECDDA4000B9121 /* AudioToolbox.framework in Frameworks */,
 				77430C6D1EECDD73000B9121 /* AVFoundation.framework in Frameworks */,
 				77430C6A1EECDC59000B9121 /* libRCTWebRTC.a in Frameworks */,
+				D54F78881EEDC6D000B66DCB /* libRNSpinkit.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -521,7 +532,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+
 				77430C611EECDB17000B9121 /* RCTWebRTC.xcodeproj */,
+				D54F78691EEDC6A200B66DCB /* RNSpinkit.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -567,6 +580,14 @@
 				00E356EE1AD99517003FC87E /* frontendTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* frontend-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* frontend-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D54F786A1EEDC6A200B66DCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D54F78871EEDC6A200B66DCB /* libRNSpinkit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -734,6 +755,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = D54F786A1EEDC6A200B66DCB /* Products */;
+					ProjectRef = D54F78691EEDC6A200B66DCB /* RNSpinkit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -927,6 +952,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D54F78871EEDC6A200B66DCB /* libRNSpinkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSpinkit.a;
+			remoteRef = D54F78861EEDC6A200B66DCB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    createTrip: (id, trip) => dispatch(createTrip(id, trip)),
   };
 };
 
