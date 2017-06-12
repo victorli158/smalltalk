@@ -21,8 +21,10 @@ class StartChat extends Component {
     return (
       <View style={{backgroundColor: colors.background, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <QueueSpinner/>
-        <View>
-          <Text style={{marginTop: 20, marginBottom: 20, fontSize: 20}}>Please wait...</Text>
+        <View style={{flex: 9, justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{justifyContent: 'center', alignItems: 'center', marginBottom: 40, fontSize: 20}}>
+            Please wait...
+          </Text>
           <PrimaryButton
             label="Cancel"
             onPress={this.handleCancel}

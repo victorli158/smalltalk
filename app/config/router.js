@@ -23,7 +23,7 @@ export const HomeStack = StackNavigator({
   StartChat: {
     screen: StartChatContainer,
     navigationOptions: ({ navigation }) => ({
-      title: 'Start Chat',
+      title: '',
       headerLeft: null,
       headerTintColor: "white",
       headerStyle: {

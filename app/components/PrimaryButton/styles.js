@@ -9,6 +9,8 @@ export default StyleSheet.create({
     borderRadius: 10,
   },
   primaryButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
     borderColor: colors.primary,
     backgroundColor: colors.primary,
     borderWidth: 5,

@@ -7,13 +7,16 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
     borderRadius: 10,
-
+    flex: 1,
+    maxWidth: 200
   },
   TopicButton: {
     borderColor: colors.secondary,
     backgroundColor: colors.secondary,
     borderWidth: 5,
     borderRadius: 10,
+    flex: 1,
+    maxWidth: 200
   },
   TopicButtonText: {
     textAlign: 'center',
@@ -22,5 +25,7 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontWeight: '500',
+    flex: 1,
+    maxWidth: 200
   },
 });

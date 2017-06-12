@@ -6,14 +6,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.background,
+    flex: 4,
+    marginTop: 100
   },
-  spinner: {
-    marginBottom: 50
-  },
-  btn: {
-    marginTop: 20
-  },
-  text: {
-    color: "black"
-  }
 });
