@@ -55,7 +55,7 @@ class SignUp extends React.Component {
   }
 
   handleSubmit() {
-    if (this.usernameInvalid || this.passwordInvalid || this.emailInvalid) {
+    if (this.usernameInvalid() || this.passwordInvalid() || this.emailInvalid()) {
       alert("Please fill in all fields.");
     } else {
       this.props.signUp(this.state).then(

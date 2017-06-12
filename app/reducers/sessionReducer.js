@@ -3,7 +3,8 @@ import _ from 'lodash';
 
 const initialState = {
   username: "",
-  sessionToken: ""
+  email: "",
+  id: ""
 };
 
 const SessionReducer = (state = initialState, action) => {

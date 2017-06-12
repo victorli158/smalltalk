@@ -7,6 +7,7 @@ import LoginContainer from '../screens/userHandling/LoginContainer';
 import SignUpContainer from '../screens/userHandling/SignUpContainer';
 import StartChatContainer from '../screens/StartChat/StartChatContainer';
 import colors from './colors';
+import ChatContainer from '../screens/Chat/ChatContainer';
 
 export const HomeStack = StackNavigator({
   Home: {
@@ -31,6 +32,9 @@ export const HomeStack = StackNavigator({
       }
     })
   },
+  Chat: {
+    screen: ChatContainer,
+  }
 },
 {
   headerMode: 'screen'

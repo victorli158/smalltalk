@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import {
     RTCPeerConnection,
     RTCMediaStream,
@@ -10,10 +10,11 @@ import {
     getUserMedia,
 } from 'react-native-webrtc';
 
+
 const connection = new WebSocket('ws://flex-aa.herokuapp.com');
 
 
-class Main extends Component {
+class Chat extends Component {
   constructor(props){
     super(props);
 
@@ -42,8 +43,8 @@ class Main extends Component {
         // video: Platform.OS === 'ios' ? false : {
         video: {
           mandatory: {
-            minWidth: 500,
-            minHeight: 300,
+            minWidth: 50,
+            minHeight: 30,
             minFrameRate: 30
           },
           facingMode: (isFront ? 'user' : 'environment'),
@@ -55,6 +56,11 @@ class Main extends Component {
           localVideoURL: stream.toURL()
         });
         pc.addStream(stream);
+        pc.onaddstream = (e) => {
+          this.setState({
+            remoteVideoURL: e.stream.toURL()
+          })
+        };
       }, error => {
         console.log('Oops, we getting error', error.message);
         throw error;
@@ -64,21 +70,25 @@ class Main extends Component {
     //handling messages
     connection.onmessage = (message) => {
       console.log("Message:", message.data);
-
       const data = JSON.parse(message.data);
 
-      switch(data.type) {
-        case "offer":
-          handleOffer(data.offer, data.name)
-          break;
-        case "answer":
-          handleAnswer(data.answer)
-          break;
-        case "candidate":
-          handleCandidate(data.candidate)
-          break;
-        default:
-          break;
+      if (data.username !== this.props.session.username){
+        switch(data.type) {
+          case "offer":
+            handleOffer(data.offer, data.name)
+            break;
+          case "answer":
+            handleAnswer(data.answer)
+            break;
+          case "candidate":
+            handleCandidate(data.candidate)
+            break;
+          case "ready":
+            startNegotiation()
+            break;
+          default:
+            break;
+        }
       }
     };
 
@@ -132,19 +142,31 @@ class Main extends Component {
 
   render() {
     return (
-      <RTCView streamURL={this.state.videoURL} style={styles.container} />
-      <RTCView streamURL={this.state.videoURL} style={styles.container} />
+      <View style={styles.container}>
+        <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
+
+      </View>
     );
   }
 }
 
 const styles = {
   container: {
+    position: 'relative',
     flex: 1,
     backgroundColor: '#ccc',
+    borderWidth: 1,
+    borderColor: '#000'
+  },
+  localStream: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+    height: 100,
+    width: 100,
     borderWidth: 1,
     borderColor: '#000'
   }
 };
 
-export default Main;
+export default Chat;
