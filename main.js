@@ -10,15 +10,19 @@ import {
     getUserMedia,
 } from 'react-native-webrtc';
 
-const connection = new WebSocket('ws://localhost:9090');
+const connection = new WebSocket('ws://flex-aa.herokuapp.com');
 
 
 class Main extends Component {
-    // Initial state
-    state = {
-        videoURL: null,
-        isFront: true
-    }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      localVideoURL: null,
+      remoteVideoURL: null,
+      isFront: true
+    };
+  }
 
   componentDidMount() {
     const configuration = { "iceServers": [{ "url": "stun:stun.l.google.com:19302" }] };
@@ -48,7 +52,7 @@ class Main extends Component {
       }, (stream) => {
         console.log('Streaming OK', stream);
         this.setState({
-          videoURL: stream.toURL()
+          localVideoURL: stream.toURL()
         });
         pc.addStream(stream);
       }, error => {
@@ -122,14 +126,13 @@ class Main extends Component {
       // send event.candidate to peer
       if (event.candidate) {
         send(event.candidate)
-      } else {
-        console.log('All ICE candidates have been exhausted.')
       }
     };
   }
 
   render() {
     return (
+      <RTCView streamURL={this.state.videoURL} style={styles.container} />
       <RTCView streamURL={this.state.videoURL} style={styles.container} />
     );
   }
