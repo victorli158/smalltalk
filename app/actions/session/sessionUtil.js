@@ -16,6 +16,19 @@ export const signUp = (user) => (
   )
 );
 
+export const getSessionKey = () => (
+  fetch(
+    'https://flex-aa.herokuapp.com/session',
+    {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }
+  )
+);
+
 export const signOut = () => (
   fetch(
     'https://flex-aa.herokuapp.com/session',

@@ -11,13 +11,13 @@ import {
 } from 'react-native-webrtc';
 
 
-const connection = new WebSocket('ws://flex-aa.herokuapp.com');
-
-
 class Chat extends Component {
   constructor(props){
     super(props);
-
+    let str = JSON.stringify(this.props.session);
+    console.log(str);
+    console.log('beep: ' + this.props.session.sessionKey);
+    this.connection = new WebSocket(`ws://flex-aa.herokuapp.com/?session_key=${this.props.session.sessionKey}`);
     this.state = {
       localVideoURL: null,
       remoteVideoURL: null,
@@ -27,6 +27,7 @@ class Chat extends Component {
 
   componentDidMount() {
     const configuration = { "iceServers": [{ "url": "stun:stun.l.google.com:19302" }] };
+    console.log(`USERNAME: ${this.props.session.username}`);
     const pc = new RTCPeerConnection(configuration);
     const { isFront } = this.state;
     MediaStreamTrack.getSources(sourceInfos => {
@@ -39,7 +40,7 @@ class Chat extends Component {
         }
       }
       getUserMedia({
-        audio: true,
+        audio: false,
         // video: Platform.OS === 'ios' ? false : {
         video: {
           mandatory: {
@@ -59,7 +60,7 @@ class Chat extends Component {
         pc.onaddstream = (e) => {
           this.setState({
             remoteVideoURL: e.stream.toURL()
-          })
+          });
         };
       }, error => {
         console.log('Oops, we getting error', error.message);
@@ -68,23 +69,23 @@ class Chat extends Component {
     });
 
     //handling messages
-    connection.onmessage = (message) => {
+    this.connection.onmessage = (message) => {
       console.log("Message:", message.data);
       const data = JSON.parse(message.data);
 
       if (data.username !== this.props.session.username){
         switch(data.type) {
           case "offer":
-            handleOffer(data.offer, data.name)
+            handleOffer(data.offer, data.name);
             break;
           case "answer":
-            handleAnswer(data.answer)
+            handleAnswer(data.answer);
             break;
           case "candidate":
-            handleCandidate(data.candidate)
+            handleCandidate(data.candidate);
             break;
           case "ready":
-            startNegotiation()
+            startNegotiation();
             break;
           default:
             break;
@@ -94,7 +95,7 @@ class Chat extends Component {
 
     //send JSON messages
     const send = (message) => {
-      connection.send(JSON.stringify(message));
+      this.connection.send(JSON.stringify(message));
     };
 
     //Will be sent on button press
@@ -106,36 +107,35 @@ class Chat extends Component {
           offer
         });
 
-        pc.setLocalDescription(offer);
+        pc.setLocalDescription(offer, () => '', ()=>'');
       });
     };
 
 
     const handleOffer = (offer) => {
-      pc.setRemoteDescription(new RTCSessionDescription(offer));
+      pc.setRemoteDescription(new RTCSessionDescription(offer), () => '', ()=>'');
 
       pc.createAnswer((answer) => {
         send({
           type: 'answer',
           answer
-        })
-      })
-
-      pc.setLocalDescription(answer);
+        });
+        pc.setLocalDescription(answer, () => '', ()=>'');
+      });
     };
 
     const handleAnswer = (answer) => {
-      pc.setRemoteDescription(new RTCSessionDescription(answer));
+      pc.setRemoteDescription(new RTCSessionDescription(answer), () => '', ()=>'');
     };
 
     const handleCandidate = (candidate) => {
-      pc.addIceCandidate(new RTCIceCandidate(candidate))
-    }
+      pc.addIceCandidate(new RTCIceCandidate(candidate), () => '', ()=>'');
+    };
 
     pc.onicecandidate = (event) => {
       // send event.candidate to peer
       if (event.candidate) {
-        send(event.candidate)
+        send(event.candidate);
       }
     };
   }
@@ -144,7 +144,7 @@ class Chat extends Component {
     return (
       <View style={styles.container}>
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
-
+        <RTCView streamURL={this.state.remoteVideoURL} style={styles.container} />
       </View>
     );
   }
@@ -159,11 +159,7 @@ const styles = {
     borderColor: '#000'
   },
   localStream: {
-    position: 'absolute',
-    bottom: 10,
-    right: 10,
-    height: 100,
-    width: 100,
+    flex: 1,
     borderWidth: 1,
     borderColor: '#000'
   }
