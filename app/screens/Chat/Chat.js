@@ -26,7 +26,7 @@ class Chat extends Component {
   }
 
   componentDidMount() {
-    const configuration = { "iceServers": [{ "url": "stun:stun.l.google.com:19302" }] };
+    const configuration = { "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }] };
     console.log(`USERNAME: ${this.props.session.username}`);
     const pc = new RTCPeerConnection(configuration);
     const { isFront } = this.state;
@@ -40,7 +40,7 @@ class Chat extends Component {
         }
       }
       getUserMedia({
-        audio: false,
+        audio: true,
         // video: Platform.OS === 'ios' ? false : {
         video: {
           mandatory: {
@@ -116,11 +116,11 @@ class Chat extends Component {
       pc.setRemoteDescription(new RTCSessionDescription(offer), () => '', ()=>'');
 
       pc.createAnswer((answer) => {
+        pc.setLocalDescription(answer, () => '', ()=>'');
         send({
           type: 'answer',
           answer
         });
-        pc.setLocalDescription(answer, () => '', ()=>'');
       });
     };
 
@@ -135,7 +135,9 @@ class Chat extends Component {
     pc.onicecandidate = (event) => {
       // send event.candidate to peer
       if (event.candidate) {
-        send(event.candidate);
+        send({
+                  candidate: event.candidate
+               });
       }
     };
   }
