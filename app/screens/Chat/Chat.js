@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, View, PrimaryButton } from 'react-native';
 import {
     RTCPeerConnection,
     RTCMediaStream,
@@ -147,6 +147,7 @@ class Chat extends Component {
       <View style={styles.container}>
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
         <RTCView streamURL={this.state.remoteVideoURL} style={styles.container} />
+        <PrimaryButton label="Connect" onPress={startNegotiation} />
       </View>
     );
   }
