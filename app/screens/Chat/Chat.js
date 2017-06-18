@@ -17,6 +17,7 @@ class Chat extends Component {
     super(props);
     let str = JSON.stringify(this.props.session);
     this.startNegotiation = this.startNegotiation.bind(this);
+    this.endSession = this.endSession.bind(this);
     this.send = this.send.bind(this);
     this.connection = new WebSocket(`ws://flex-aa.herokuapp.com/?session_key=${this.props.session.sessionKey}`);
     this.state = {
@@ -139,6 +140,11 @@ class Chat extends Component {
     });
   }
 
+  endSession(){
+    this.pc.close();
+    this.props.navigation.navigate('Home')
+  }
+
   //send JSON messages
   send(message){
     this.connection.send(JSON.stringify(message));
@@ -150,6 +156,7 @@ class Chat extends Component {
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
         <RTCView streamURL={this.state.remoteVideoURL} style={styles.container} />
         <PrimaryButton label="Connect" onPress={this.startNegotiation} />
+        <PrimaryButton label="Disconnect" onPress={this.endSession} />
       </View>
     );
   }
