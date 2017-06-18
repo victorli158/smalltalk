@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, View, PrimaryButton } from 'react-native';
+import { Platform, View } from 'react-native';
+import { PrimaryButton } from '../../components/PrimaryButton';
 import {
     RTCPeerConnection,
     RTCMediaStream,
@@ -15,8 +16,8 @@ class Chat extends Component {
   constructor(props){
     super(props);
     let str = JSON.stringify(this.props.session);
-    console.log(str);
-    console.log('beep: ' + this.props.session.sessionKey);
+    this.startNegotiation = this.startNegotiation.bind(this);
+    this.send = this.send.bind(this);
     this.connection = new WebSocket(`ws://flex-aa.herokuapp.com/?session_key=${this.props.session.sessionKey}`);
     this.state = {
       localVideoURL: null,
@@ -28,7 +29,7 @@ class Chat extends Component {
   componentDidMount() {
     const configuration = { "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }] };
     console.log(`USERNAME: ${this.props.session.username}`);
-    const pc = new RTCPeerConnection(configuration);
+    this.pc = new RTCPeerConnection(configuration);
     const { isFront } = this.state;
     MediaStreamTrack.getSources(sourceInfos => {
       console.log('MediaStreamTrack.getSources', sourceInfos);
@@ -56,8 +57,8 @@ class Chat extends Component {
         this.setState({
           localVideoURL: stream.toURL()
         });
-        pc.addStream(stream);
-        pc.onaddstream = (e) => {
+        this.pc.addStream(stream);
+        this.pc.onaddstream = (e) => {
           this.setState({
             remoteVideoURL: e.stream.toURL()
           });
@@ -85,7 +86,7 @@ class Chat extends Component {
             handleCandidate(data.candidate);
             break;
           case "ready":
-            startNegotiation();
+            this.startNegotiation();
             break;
           default:
             break;
@@ -93,31 +94,15 @@ class Chat extends Component {
       }
     };
 
-    //send JSON messages
-    const send = (message) => {
-      this.connection.send(JSON.stringify(message));
-    };
-
     //Will be sent on button press
-    const startNegotiation = () => {
-      pc.createOffer((offer) => {
-
-        send({
-          type: 'offer',
-          offer
-        });
-
-        pc.setLocalDescription(offer, () => '', ()=>'');
-      });
-    };
 
 
     const handleOffer = (offer) => {
-      pc.setRemoteDescription(new RTCSessionDescription(offer), () => '', ()=>'');
+      this.pc.setRemoteDescription(new RTCSessionDescription(offer), () => '', ()=>'');
 
-      pc.createAnswer((answer) => {
-        pc.setLocalDescription(answer, () => '', ()=>'');
-        send({
+      this.pc.createAnswer((answer) => {
+        this.pc.setLocalDescription(answer, () => '', ()=>'');
+        this.send({
           type: 'answer',
           answer
         });
@@ -125,21 +110,38 @@ class Chat extends Component {
     };
 
     const handleAnswer = (answer) => {
-      pc.setRemoteDescription(new RTCSessionDescription(answer), () => '', ()=>'');
+      this.pc.setRemoteDescription(new RTCSessionDescription(answer), () => '', ()=>'');
     };
 
     const handleCandidate = (candidate) => {
-      pc.addIceCandidate(new RTCIceCandidate(candidate), () => '', ()=>'');
+      this.pc.addIceCandidate(new RTCIceCandidate(candidate), () => '', ()=>'');
     };
 
-    pc.onicecandidate = (event) => {
+    this.pc.onicecandidate = (event) => {
       // send event.candidate to peer
       if (event.candidate) {
-        send({
+        this.send({
                   candidate: event.candidate
                });
       }
     };
+  }
+
+  startNegotiation(){
+    this.pc.createOffer((offer) => {
+
+      this.send({
+        type: 'offer',
+        offer
+      });
+
+      this.pc.setLocalDescription(offer, () => '', ()=>'');
+    });
+  }
+
+  //send JSON messages
+  send(message){
+    this.connection.send(JSON.stringify(message));
   }
 
   render() {
@@ -147,7 +149,7 @@ class Chat extends Component {
       <View style={styles.container}>
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
         <RTCView streamURL={this.state.remoteVideoURL} style={styles.container} />
-        <PrimaryButton label="Connect" onPress={startNegotiation} />
+        <PrimaryButton label="Connect" onPress={this.startNegotiation} />
       </View>
     );
   }
