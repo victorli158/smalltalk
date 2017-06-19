@@ -8,10 +8,11 @@ import SignUpContainer from '../screens/userHandling/SignUpContainer';
 import StartChatContainer from '../screens/StartChat/StartChatContainer';
 import colors from './colors';
 import ChatContainer from '../screens/Chat/ChatContainer';
+import HomeContainer from '../screens/Home/home_container';
 
 export const HomeStack = StackNavigator({
   Home: {
-    screen: Home,
+    screen: HomeContainer,
     navigationOptions: ({ navigation }) => ({
       title: 'Home',
       headerLeft: null,

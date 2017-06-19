@@ -75,7 +75,7 @@ class Home extends Component {
     return (
       <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
         <Text style={{marginBottom: 20, fontSize: 20, fontWeight: 'bold'}}>
-          Hi, {this.state.users[0].username}!
+          Hi {this.props.username}!
         </Text>
         <TopicButton
           label="General"

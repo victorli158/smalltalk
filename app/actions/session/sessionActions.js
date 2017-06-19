@@ -71,6 +71,9 @@ export const signUp = (user) => (dispatch) => {
       resp.json()
       .then((json) => {
         dispatch(receiveUser(json));
+      })
+      .then(()=> {
+        dispatch(getSessionKey());
       });
     }
     else{

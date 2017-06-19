@@ -59,6 +59,7 @@ class Chat extends Component {
         });
         this.pc.addStream(stream);
         this.pc.onaddstream = (e) => {
+          console.log('I JUST ADDED A REMOTE VIDEOSTREAM');
           this.setState({
             remoteVideoURL: e.stream.toURL()
           });
@@ -94,9 +95,6 @@ class Chat extends Component {
       }
     };
 
-    //Will be sent on button press
-
-
     const handleOffer = (offer) => {
       this.pc.setRemoteDescription(new RTCSessionDescription(offer), () => '', ()=>'');
 
@@ -121,8 +119,8 @@ class Chat extends Component {
       // send event.candidate to peer
       if (event.candidate) {
         this.send({
-                  candidate: event.candidate
-               });
+          candidate: event.candidate
+        });
       }
     };
   }
@@ -164,8 +162,11 @@ const styles = {
     borderColor: '#000'
   },
   localStream: {
-    flex: 1,
     borderWidth: 1,
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zindex: 1000,
     borderColor: '#000'
   }
 };
