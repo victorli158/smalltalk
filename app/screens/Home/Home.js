@@ -74,14 +74,20 @@ class Home extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <TouchableOpacity style={{flex: 1, backgroundColor: 'powderblue'}}>
-          <Text>Thing</Text>
+        <TouchableOpacity style={{flex: 1, backgroundColor: '#a041f4', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>General</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: 1, backgroundColor: 'skyblue'}}>
-          <Text>Another one.</Text>
+        <TouchableOpacity style={{flex: 1, backgroundColor: '#5cf442', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>News</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: 1, backgroundColor: 'steelblue'}}>
-          <Text>Another one..</Text>
+        <TouchableOpacity style={{flex: 1, backgroundColor: '#f48c41', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Sports</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{flex: 1, backgroundColor: '#42f4a4', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Movies & TV</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{flex: 1, backgroundColor: '#ff8080', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Gaming</Text>
         </TouchableOpacity>
       </View>
     );
@@ -98,6 +104,12 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
+  },
+  text: {
+    fontSize: 40,
+    fontWeight: "600",
+    color: 'white',
+    textShadowColor: 'black'
   }
 })
 
