@@ -19,6 +19,7 @@ class Chat extends Component {
     this.startNegotiation = this.startNegotiation.bind(this);
     this.endSession = this.endSession.bind(this);
     this.send = this.send.bind(this);
+    this.closeConnections = this.closeConnections.bind(this);
     this.connection = new WebSocket(`ws://flex-aa.herokuapp.com/?session_key=${this.props.session.sessionKey}`);
     this.state = {
       localVideoURL: null,
@@ -90,6 +91,8 @@ class Chat extends Component {
           case "ready":
             this.startNegotiation();
             break;
+          case "disconnected":
+            this.closeConnections();
           default:
             break;
         }
@@ -144,9 +147,13 @@ class Chat extends Component {
     this.props.navigation.navigate('Home');
   }
 
-  componentWillUnmount(){
+  closeConnections(){
     this.pc.close();
     this.connection.close();
+  }
+
+  componentWillUnmount(){
+    this.closeConnections;
   }
 
   //send JSON messages
