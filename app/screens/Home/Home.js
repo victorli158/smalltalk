@@ -33,6 +33,7 @@ class Home extends Component {
     }  else {
       this.state.topics['general'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleNewsPress() {
@@ -41,6 +42,7 @@ class Home extends Component {
     }  else {
       this.state.topics['news'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleSportsPress() {
@@ -49,6 +51,7 @@ class Home extends Component {
     }  else {
       this.state.topics['sports'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleMoviesTVPress() {
@@ -57,6 +60,7 @@ class Home extends Component {
     }  else {
       this.state.topics['moviesTV'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleGamingPress() {
@@ -65,6 +69,7 @@ class Home extends Component {
     }  else {
       this.state.topics['gaming'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleQueuePress() {
@@ -74,19 +79,19 @@ class Home extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <TouchableOpacity style={{flex: 1, backgroundColor: '#a041f4', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleGeneralPress} style={{flex: 1, backgroundColor: '#a041f4', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>General</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: 1, backgroundColor: '#5cf442', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleNewsPress} style={{flex: 1, backgroundColor: '#5cf442', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>News</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: 1, backgroundColor: '#f48c41', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleSportsPress} style={{flex: 1, backgroundColor: '#f48c41', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>Sports</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: 1, backgroundColor: '#42f4a4', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleMoviesTVPress} style={{flex: 1, backgroundColor: '#42f4a4', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>Movies & TV</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{flex: 1, backgroundColor: '#ff8080', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleGamingPress} style={{flex: 1, backgroundColor: '#ff8080', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>Gaming</Text>
         </TouchableOpacity>
       </View>
