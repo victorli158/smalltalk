@@ -6,12 +6,6 @@ import { TextInput } from '../../components/TextInput';
 import { PrimaryButton } from '../../components/PrimaryButton';
 import { HomeStack } from '../../config/router';
 
-const fields = [
-  { placeholder: 'Enter username..', stateKey: 'username' },
-  { placeholder: 'Enter email..', stateKey: 'email' },
-  { placeholder: 'Enter password..', stateKey: 'password' },
-];
-
 class SignUp extends React.Component {
   constructor(props){
     super(props);
@@ -69,16 +63,25 @@ class SignUp extends React.Component {
   render(){
     return(
       <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
-        {
-          fields.map((field) => (
-            <TextInput
-              style={{ width: 300, height: 40}}
-              key={field.stateKey}
-              onChangeText={(text) => this.onInputChange(text, field.stateKey)}
-              {...field}
-            />
-          ))
-        }
+        <TextInput
+          style={{ width: 300, height: 40}}
+          key={'email'}
+          placeholder={'Enter email'}
+          onChangeText={(text) => this.onInputChange(text, 'email')}
+        />
+        <TextInput
+          style={{ width: 300, height: 40}}
+          key={'username'}
+          placeholder={'Enter username'}
+          onChangeText={(text) => this.onInputChange(text, 'username')}
+        />
+        <TextInput
+          style={{ width: 300, height: 40}}
+          key={'password'}
+          placeholder={'Enter password'}
+          secureTextEntry={true}
+          onChangeText={(text) => this.onInputChange(text, 'password')}
+        />
         <View style={{ marginTop: 20 }}>
           <PrimaryButton
             label="Sign Up"
