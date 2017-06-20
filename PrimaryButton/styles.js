@@ -19,7 +19,7 @@ export default StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 40,
     color: '#fff',
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: '500',
   },
 });

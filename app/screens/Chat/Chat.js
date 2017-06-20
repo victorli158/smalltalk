@@ -140,7 +140,7 @@ class Chat extends Component {
 
   endSession(){
     this.pc.close();
-    this.props.navigation.navigate('Home')
+    this.props.navigation.navigate('Home');
   }
 
   //send JSON messages
@@ -152,7 +152,7 @@ class Chat extends Component {
     return (
       <View style={styles.container}>
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
-        <RTCView streamURL={this.state.remoteVideoURL} style={styles.container} />
+        <RTCView streamURL={this.state.remoteVideoURL} style={styles.remoteStream} />
         <View style={styles.buttons}>
           <PrimaryButton label="Connect" onPress={this.startNegotiation} />
           <PrimaryButton label="Disconnect" onPress={this.endSession} />
@@ -168,9 +168,12 @@ const styles = {
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  remoteStream: {
+    flex: 1,
+  },
   localStream: {
     position: 'absolute',
-    top: 20,
+    top: 30,
     left: 290,
     zIndex: 1000,
     height: 125,
@@ -179,9 +182,11 @@ const styles = {
   buttons: {
     flex: 1,
     flexDirection: 'row',
-    bottom: 0,
+    bottom: -10,
     position: 'absolute',
     justifyContent: 'space-around',
+    zIndex: 1000,
+    width: '100%',
   }
 };
 
