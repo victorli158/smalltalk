@@ -35,6 +35,9 @@ export const HomeStack = StackNavigator({
   },
   Chat: {
     screen: ChatContainer,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    })
   }
 },
 {
