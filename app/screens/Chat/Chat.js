@@ -140,7 +140,13 @@ class Chat extends Component {
 
   endSession(){
     this.pc.close();
+    this.connection.close();
     this.props.navigation.navigate('Home');
+  }
+
+  componentWillUnmount(){
+    this.pc.close();
+    this.connection.close();
   }
 
   //send JSON messages

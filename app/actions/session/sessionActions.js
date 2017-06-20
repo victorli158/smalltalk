@@ -46,7 +46,6 @@ export const getSessionKey = () => (dispatch) => (
       if(resp.ok){
         resp.json()
         .then((key) => {
-          console.log('my_key = ' + key.session_key);
           dispatch(receiveKey(key.session_key));
         });
       }
@@ -78,8 +77,7 @@ export const signUp = (user) => (dispatch) => {
     else{
       resp.json()
       .then((err)=>{
-        console.log(err);
-        // throw `${err}`;
+        throw `${err}`;
       });
     }
   }, ()=>console.log('i failed'));
