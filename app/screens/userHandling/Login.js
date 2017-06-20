@@ -50,12 +50,15 @@ class Login extends React.Component {
       this.props.signIn(this.state).then(
         () => this.props.navigation.navigate('HomeStack')
       ).catch((error) => {
-        alert(error.message);
+        error.json().then((resp) => {
+          alert(resp.errors);
+        });
       });
     }
   }
 
   render(){
+    console.log('supma');
     return(
       <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
         {
