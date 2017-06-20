@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import colors from '../../config/colors';
 import { PrimaryButton } from '../../components/PrimaryButton';
@@ -73,31 +73,16 @@ class Home extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{marginBottom: 20, fontSize: 20, fontWeight: 'bold'}}>
-          Hi {this.props.username}!
-        </Text>
-        <TopicButton
-          label="General"
-          onPress={this.handleGeneralPress}
-        />
-        <TopicButton
-          label="News"
-          onPress={this.handleNewsPress}
-        />
-        <TopicButton
-          label="Sports"
-          onPress={this.handleSportsPress}
-        />
-        <TopicButton
-          label="Movies and TV"
-          onPress={this.handleMoviesTVPress}
-        />
-        <TopicButton
-          label="Gaming"
-          onPress={this.handleGamingPress}
-        />
-        <PrimaryButton label="Start Chat" onPress={this.handleQueuePress} />
+      <View style={{flex: 1}}>
+        <TouchableOpacity style={{flex: 1, backgroundColor: 'powderblue'}}>
+          <Text>Thing</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{flex: 1, backgroundColor: 'skyblue'}}>
+          <Text>Another one.</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{flex: 1, backgroundColor: 'steelblue'}}>
+          <Text>Another one..</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -106,5 +91,14 @@ class Home extends Component {
 Home.propTypes = {
   navigation: PropTypes.object,
 };
+
+const styles = StyleSheet.create({
+  button_container: {
+    flex: 1
+  },
+  button: {
+    flex: 1,
+  }
+})
 
 export default Home;

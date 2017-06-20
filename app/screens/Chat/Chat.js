@@ -43,8 +43,8 @@ class Chat extends Component {
       }
       getUserMedia({
         audio: true,
-        // video: Platform.OS === 'ios' ? false : {
-        video: {
+        video: Platform.OS === 'ios' ? false : {
+        // video: {
           mandatory: {
             minWidth: 50,
             minHeight: 30,
