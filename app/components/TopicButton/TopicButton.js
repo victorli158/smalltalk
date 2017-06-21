@@ -4,10 +4,9 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import styles from './styles';
 
 const TopicButton = ({ label, onPress }) => (
-  <View style={styles.TopicButtonContainer}>
+  <View style={{flex: 1, backgroundColor: 'orange'}}>
     <TouchableOpacity
       onPress={onPress}
-      style={styles.TopicButton}
     >
       <Text style={styles.TopicButtonText}>{label}</Text>
     </TouchableOpacity>

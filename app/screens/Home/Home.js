@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import colors from '../../config/colors';
 import { PrimaryButton } from '../../components/PrimaryButton';
@@ -33,6 +33,7 @@ class Home extends Component {
     }  else {
       this.state.topics['general'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleNewsPress() {
@@ -41,6 +42,7 @@ class Home extends Component {
     }  else {
       this.state.topics['news'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleSportsPress() {
@@ -49,6 +51,7 @@ class Home extends Component {
     }  else {
       this.state.topics['sports'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleMoviesTVPress() {
@@ -57,6 +60,7 @@ class Home extends Component {
     }  else {
       this.state.topics['moviesTV'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleGamingPress() {
@@ -65,6 +69,7 @@ class Home extends Component {
     }  else {
       this.state.topics['gaming'] = false;
     }
+    this.props.navigation.navigate('Chat');
   }
 
   handleQueuePress() {
@@ -73,31 +78,22 @@ class Home extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{marginBottom: 20, fontSize: 20, fontWeight: 'bold'}}>
-          Hi {this.props.username}!
-        </Text>
-        <TopicButton
-          label="General"
-          onPress={this.handleGeneralPress}
-        />
-        <TopicButton
-          label="News"
-          onPress={this.handleNewsPress}
-        />
-        <TopicButton
-          label="Sports"
-          onPress={this.handleSportsPress}
-        />
-        <TopicButton
-          label="Movies and TV"
-          onPress={this.handleMoviesTVPress}
-        />
-        <TopicButton
-          label="Gaming"
-          onPress={this.handleGamingPress}
-        />
-        <PrimaryButton label="Start Chat" onPress={this.handleQueuePress} />
+      <View style={{flex: 1}}>
+        <TouchableOpacity onPress={this.handleGeneralPress} style={{flex: 1, backgroundColor: '#a041f4', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>General</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.handleNewsPress} style={{flex: 1, backgroundColor: '#5cf442', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>News</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.handleSportsPress} style={{flex: 1, backgroundColor: '#f48c41', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Sports</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.handleMoviesTVPress} style={{flex: 1, backgroundColor: '#42f4a4', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Movies & TV</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.handleGamingPress} style={{flex: 1, backgroundColor: '#ff8080', alignItems: 'center', justifyContent: 'center' }}>
+          <Text style={styles.text}>Gaming</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -106,5 +102,20 @@ class Home extends Component {
 Home.propTypes = {
   navigation: PropTypes.object,
 };
+
+const styles = StyleSheet.create({
+  button_container: {
+    flex: 1
+  },
+  button: {
+    flex: 1,
+  },
+  text: {
+    fontSize: 40,
+    fontWeight: "600",
+    color: 'white',
+    textShadowColor: 'black'
+  }
+})
 
 export default Home;
