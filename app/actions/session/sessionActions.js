@@ -25,17 +25,13 @@ export const signIn = (user) => (dispatch) => (
         resp.json()
         .then((current_user) => {
           dispatch(receiveUser(current_user));
-          console.log("USER" + current_user);
         })
         .then(()=> {
           dispatch(getSessionKey());
         });
       }
       else{
-        resp.json()
-        .then((err)=>{
-          console.log(err.errors);
-        });
+        throw resp;
       }
     })
 );
@@ -75,10 +71,8 @@ export const signUp = (user) => (dispatch) => {
       });
     }
     else{
-      resp.json()
-      .then((err)=>{
-        throw `${err}`;
-      });
+      throw resp;
+
     }
   }, ()=>console.log('i failed'));
 

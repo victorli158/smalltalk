@@ -61,10 +61,24 @@ class SignUp extends React.Component {
       this.props.signUp(this.state).then(
         () => this.props.navigation.navigate('HomeStack')
       ).catch((error) => {
-        alert(error.message);
+        error.json().then((resp) => {
+          let errors = [];
+          for (var key in resp) {
+            if (resp.hasOwnProperty(key)) {
+              errors += (resp[key]);
+            }
+          }
+          alert(errors);
+        });
       });
     }
   }
+
+  // .then(
+  //   () => this.props.navigation.navigate('HomeStack')
+  // ).catch((error) => {
+  //   alert(error.message);
+  // })
 
   render(){
     return(
