@@ -42,8 +42,8 @@ class Chat extends Component {
       }
       getUserMedia({
         audio: true,
-        video: Platform.OS === 'ios' ? false : {
-        // video: {
+        // video: Platform.OS === 'ios' ? false : {
+        video: {
           mandatory: {
             minWidth: 50,
             minHeight: 30,
@@ -71,7 +71,7 @@ class Chat extends Component {
     //handling messages
     this.connection.onmessage = (message) => {
       const data = JSON.parse(message.data);
-
+      console.log(data);
       if (data.username !== this.props.session.username){
         switch(data.type) {
           case "offer":
@@ -86,8 +86,8 @@ class Chat extends Component {
           case "ready":
             this.startNegotiation();
             break;
-          case "disconnected":
-            this.closeConnections();
+          // case "disconnected":
+          //   this.closeConnections();
           default:
             break;
         }
