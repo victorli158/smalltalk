@@ -21,7 +21,7 @@ Other technologies implemented include:
 
 #### WebRTC
 
-To establish a video and peer to peer connection, WebRTC was implemented on top of Django Channels.
+To establish a video and peer-to-peer connection, WebRTC was implemented on top of Django Channels.  WebRTC is a technology that allows for peer-to-peer teleconferencing without requiring the user to install plug-ins or any other third-party software.  It's made up of a number of APIs and protocols that operate together in order to make this possible.  Most notably, the RTCPeerConnection interface represents the connection itself - mapping the local computer to the remote peer.  This object provides methods to connect to a remote peer, maintain and monitor the connection, and close the connection once it's no longer needed.  The process of connecting peers initially takes place through an external signaling server, where WebSockets are used to exchange important information about each user's media and connectivity options.  Whereas the recipient of the connection is typically explicitly specified by the user before the connection is made, our application does this work on the backend.  
 
 #### Django Channels
 
