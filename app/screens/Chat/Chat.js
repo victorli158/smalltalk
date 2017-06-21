@@ -19,6 +19,7 @@ class Chat extends Component {
     this.startNegotiation = this.startNegotiation.bind(this);
     this.endSession = this.endSession.bind(this);
     this.send = this.send.bind(this);
+    this.closeConnections = this.closeConnections.bind(this);
     this.connection = new WebSocket(`ws://flex-aa.herokuapp.com/?session_key=${this.props.session.sessionKey}`);
     this.state = {
       localVideoURL: null,
@@ -29,11 +30,9 @@ class Chat extends Component {
 
   componentDidMount() {
     const configuration = { "iceServers": [{ "url": "stun:stun2.1.google.com:19302" }] };
-    console.log(`USERNAME: ${this.props.session.username}`);
     this.pc = new RTCPeerConnection(configuration);
     const { isFront } = this.state;
     MediaStreamTrack.getSources(sourceInfos => {
-      console.log('MediaStreamTrack.getSources', sourceInfos);
       let videoSourceId;
       for (let i = 0; i < sourceInfos.length; i++) {
         const sourceInfo = sourceInfos[i];
@@ -43,8 +42,8 @@ class Chat extends Component {
       }
       getUserMedia({
         audio: true,
-        // video: Platform.OS === 'ios' ? false : {
-        video: {
+        video: Platform.OS === 'ios' ? false : {
+        // video: {
           mandatory: {
             minWidth: 50,
             minHeight: 30,
@@ -54,13 +53,11 @@ class Chat extends Component {
           optional: (videoSourceId ? [{ sourceId: videoSourceId }] : [])
         }
       }, (stream) => {
-        console.log('Streaming OK', stream);
         this.setState({
           localVideoURL: stream.toURL()
         });
         this.pc.addStream(stream);
         this.pc.onaddstream = (e) => {
-          console.log('I JUST ADDED A REMOTE VIDEOSTREAM');
           this.setState({
             remoteVideoURL: e.stream.toURL()
           });
@@ -73,7 +70,6 @@ class Chat extends Component {
 
     //handling messages
     this.connection.onmessage = (message) => {
-      console.log("Message:", message.data);
       const data = JSON.parse(message.data);
 
       if (data.username !== this.props.session.username){
@@ -90,6 +86,8 @@ class Chat extends Component {
           case "ready":
             this.startNegotiation();
             break;
+          case "disconnected":
+            this.closeConnections();
           default:
             break;
         }
@@ -140,7 +138,17 @@ class Chat extends Component {
 
   endSession(){
     this.pc.close();
+    this.connection.close();
     this.props.navigation.navigate('Home');
+  }
+
+  closeConnections(){
+    this.pc.close();
+    this.connection.close();
+  }
+
+  componentWillUnmount(){
+    this.closeConnections;
   }
 
   //send JSON messages
