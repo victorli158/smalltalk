@@ -37,9 +37,8 @@ class Splash extends React.Component {
         <View style={{flex: 1, backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center'}}>
           <Image
             source={require('../assets/icon.png')}
-            style={{width: 300, height: 190.3383, marginBottom: 20}}
+            style={{width: 100, height: 67, marginBottom: 20}}
           />
-        <Text style={{color: colors.primary, fontSize: 36, fontWeight: 'bold'}}>Small Talk</Text>
         </View>
       </this.Transition>
     );

@@ -160,9 +160,11 @@ class Chat extends Component {
     return (
       <View style={styles.container}>
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
-        <RTCView streamURL={this.state.remoteVideoURL} style={styles.container} />
-        <PrimaryButton label="Connect" onPress={this.startNegotiation} />
-        <PrimaryButton label="Disconnect" onPress={this.endSession} />
+        <RTCView streamURL={this.state.remoteVideoURL} style={styles.remoteStream} />
+        <View style={styles.buttons}>
+          <PrimaryButton label="Connect" onPress={this.startNegotiation} />
+          <PrimaryButton label="Disconnect" onPress={this.endSession} />
+        </View>
       </View>
     );
   }
@@ -170,19 +172,29 @@ class Chat extends Component {
 
 const styles = {
   container: {
-    position: 'relative',
     flex: 1,
-    backgroundColor: '#ccc',
-    borderWidth: 1,
-    borderColor: '#000'
+    justifyContent: 'space-between',
+    flexDirection: 'column',
+  },
+  remoteStream: {
+    flex: 1,
   },
   localStream: {
-    borderWidth: 1,
     position: 'absolute',
-    top: 10,
-    right: 10,
-    zindex: 1000,
-    borderColor: '#000'
+    top: 30,
+    left: 290,
+    zIndex: 1000,
+    height: 125,
+    width: 75,
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: 'row',
+    bottom: -10,
+    position: 'absolute',
+    justifyContent: 'space-around',
+    zIndex: 1000,
+    width: '100%',
   }
 };
 
