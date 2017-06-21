@@ -10,13 +10,14 @@ Small Talk is a mobile video chat application that allows users to connect to ot
 
 ## Technologies Used
 
-The backend API was built using Python's Django framework while being connected to the frontend using React Native. Other technologies implemented include:
+The backend API was built using Python's Django framework while the frontend was constructed using React Native. React Native is useful for building performant iOS and Android apps. Transition and loading animations were incorporated to offer a polished experience for our users.
+
+Other technologies implemented include:
 
 - `WebRTC`
 - `websockets`
 
 ## Features
-
 
 #### WebRTC
 
