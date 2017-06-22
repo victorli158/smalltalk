@@ -162,10 +162,10 @@ class Chat extends Component {
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
         <RTCView streamURL={this.state.remoteVideoURL} style={styles.remoteStream} />
         <View style={styles.buttons}>
-          <TouchableOpacity style={{flex: 1, backgroundColor: '#55828B', justifyContent: 'center', alignItems: 'center'}} onPress={this.startNegotiation}>
+          <TouchableOpacity style={{flex: 1, backgroundColor: '#004346', justifyContent: 'center', alignItems: 'center'}} onPress={this.startNegotiation}>
             <Text style={styles.text}>Connect</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{flex: 1, backgroundColor: '#3B6064', justifyContent: 'center', alignItems: 'center'}} onPress={this.endSession}>
+          <TouchableOpacity style={{flex: 1, backgroundColor: '#172A3A', justifyContent: 'center', alignItems: 'center'}} onPress={this.endSession}>
             <Text style={styles.text}>Disconnect</Text>
           </TouchableOpacity>
         </View>
