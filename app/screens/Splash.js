@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Image, Text } from 'react-native';
+import { Button, View, Image, Text, TouchableOpacity } from 'react-native';
 import { createTransition } from 'react-native-transition';
 
 import { PrimaryButton } from '../components/PrimaryButton';
