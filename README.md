@@ -4,7 +4,7 @@
 
 Splash screen              |  Home screen
 :-------------------------:|:-------------------------:
-![splash](http://res.cloudinary.com/nearbytes/image/upload/c_scale,h_500,q_100/v1497275168/Screen_Shot_2017-06-12_at_6.44.21_AM_okqvwf.png)  |  ![categories](http://res.cloudinary.com/nearbytes/image/upload/c_scale,h_500,q_100/v1497275169/Screen_Shot_2017-06-12_at_6.45.20_AM_zjucm0.png)
+![video](http://res.cloudinary.com/dqr2mejhc/image/upload/v1498017130/IMG_4171_bnqdzh.jpg)  |  ![categories](http://res.cloudinary.com/dqr2mejhc/image/upload/v1498017130/IMG_4175_m6wwxa.jpg)
 
 Small Talk is a mobile video chat application that allows users to connect to other users via common subjects. With our category filters, our goal at Small Talk is to allow strangers to bond over similar interests.
 
@@ -24,6 +24,8 @@ Other technologies implemented include:
 To establish a video and peer-to-peer connection, WebRTC was implemented on top of Django Channels.  WebRTC is a technology that allows for peer-to-peer teleconferencing without requiring the user to install plug-ins or any other third-party software.  It's made up of a number of APIs and protocols that operate together in order to make this possible.  Most notably, the RTCPeerConnection interface represents the connection itself - mapping the local computer to the remote peer.  This object provides methods to connect to a remote peer, maintain and monitor the connection, and close the connection once it's no longer needed.  The process of connecting peers initially takes place through an external signaling server, where WebSockets are used to exchange important information about each user's media and connectivity options.  Whereas the recipient of the connection is typically explicitly specified by the user before the connection is made, our application does this work on the backend.  
 
 #### Django Channels
+
+![video](http://res.cloudinary.com/dqr2mejhc/image/upload/v1498018075/normal_cn6vwt.gif)
 
 In order to implement WebRTC, it was necessary to set up a signaling server so that two
 users could establish a peer to peer connection. This involved implementing Django Channels, which
