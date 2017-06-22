@@ -1,6 +1,7 @@
 # Small Talk
 
 [Demo Page](https://seanperfecto.github.io/applandingpage/)
+[Back-end Repo](https://github.com/seanperfecto/smalltalk-backend)
 
 Splash screen              |  Home screen
 :-------------------------:|:-------------------------:
