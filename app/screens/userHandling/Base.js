@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import colors from '../../config/colors';
 
 class Login extends React.Component {
@@ -7,11 +7,12 @@ class Login extends React.Component {
     super(props);
 
   }
-  
+
   render(){
     const { navigate } = this.props.navigation;
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.background}}>
+        <TouchableOpacity
         <Button
           onPress={() => navigate('Login')}
           title="Login"
