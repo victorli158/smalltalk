@@ -79,19 +79,19 @@ class Home extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <TouchableOpacity onPress={this.handleGeneralPress} style={{flex: 1, backgroundColor: '#a041f4', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleGeneralPress} style={{flex: 1, backgroundColor: '#C9E4CA', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>General</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleNewsPress} style={{flex: 1, backgroundColor: '#5cf442', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleNewsPress} style={{flex: 1, backgroundColor: '#87BBA2', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>News</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleSportsPress} style={{flex: 1, backgroundColor: '#f48c41', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleSportsPress} style={{flex: 1, backgroundColor: '#55828B', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>Sports</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleMoviesTVPress} style={{flex: 1, backgroundColor: '#42f4a4', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleMoviesTVPress} style={{flex: 1, backgroundColor: '#3B6064', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>Movies & TV</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleGamingPress} style={{flex: 1, backgroundColor: '#ff8080', alignItems: 'center', justifyContent: 'center' }}>
+        <TouchableOpacity onPress={this.handleGamingPress} style={{flex: 1, backgroundColor: '#364958', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.text}>Gaming</Text>
         </TouchableOpacity>
       </View>
