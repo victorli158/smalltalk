@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, View, TouchableOpacity, Text } from 'react-native';
 import { PrimaryButton } from '../../components/PrimaryButton';
 import {
     RTCPeerConnection,
@@ -42,8 +42,8 @@ class Chat extends Component {
       }
       getUserMedia({
         audio: true,
-        // video: Platform.OS === 'ios' ? false : {
-        video: {
+        video: Platform.OS === 'ios' ? false : {
+        // video: {
           mandatory: {
             minWidth: 50,
             minHeight: 30,
@@ -162,8 +162,12 @@ class Chat extends Component {
         <RTCView streamURL={this.state.localVideoURL} style={styles.localStream} />
         <RTCView streamURL={this.state.remoteVideoURL} style={styles.remoteStream} />
         <View style={styles.buttons}>
-          <PrimaryButton label="Connect" onPress={this.startNegotiation} />
-          <PrimaryButton label="Disconnect" onPress={this.endSession} />
+          <TouchableOpacity style={{flex: 1, backgroundColor: '#004346', justifyContent: 'center', alignItems: 'center'}} onPress={this.startNegotiation}>
+            <Text style={styles.text}>Connect</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex: 1, backgroundColor: '#172A3A', justifyContent: 'center', alignItems: 'center'}} onPress={this.endSession}>
+            <Text style={styles.text}>Disconnect</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -175,6 +179,11 @@ const styles = {
     flex: 1,
     justifyContent: 'space-between',
     flexDirection: 'column',
+  },
+  text: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: '600'
   },
   remoteStream: {
     flex: 1,
@@ -189,10 +198,10 @@ const styles = {
   },
   buttons: {
     flex: 1,
+    height: 100,
     flexDirection: 'row',
-    bottom: -10,
+    bottom: 0,
     position: 'absolute',
-    justifyContent: 'space-around',
     zIndex: 1000,
     width: '100%',
   }

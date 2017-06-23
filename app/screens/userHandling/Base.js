@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import colors from '../../config/colors';
 
 class Login extends React.Component {
@@ -7,22 +7,30 @@ class Login extends React.Component {
     super(props);
 
   }
-  
+
   render(){
     const { navigate } = this.props.navigation;
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.background}}>
-        <Button
-          onPress={() => navigate('Login')}
-          title="Login"
-        />
-        <Button
-          onPress={() => navigate('SignUp')}
-          title="Sign Up"
-        />
+        <TouchableOpacity onPress={() => navigate('Login')}>
+          <Text>
+            Login
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('SignUp')}>
+          <Text>
+            Sign Up
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+
+  }
+});
 
 export default Login;

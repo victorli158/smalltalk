@@ -2,7 +2,7 @@ export default {
   background: "#ffffff",
   border: '#cccccc',
   link: '#007aff',
-  primary: '#fa1b36',
+  primary: '#09BC8A',
   secondary: '#c02544',
   tertiary: '#f74f2e'
 };
