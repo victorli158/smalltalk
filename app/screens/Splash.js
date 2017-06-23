@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button, View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, View, Image, Text } from 'react-native';
 import { createTransition } from 'react-native-transition';
+
+import { PrimaryButton } from '../components/PrimaryButton';
 import colors from '../config/colors';
 
 class Splash extends React.Component {
@@ -16,17 +18,15 @@ class Splash extends React.Component {
 
   switch() {
     this.Transition.show(
-      <View style={{backgroundColor: '#C9E4CA', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <TouchableOpacity style={styles.button} style={{backgroundColor: '#87BBA2'}} onPress={() => this.props.navigation.navigate('Login')}>
-          <Text style={styles.text}>
-            Login
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} style={{backgroundColor: '#55828B'}} onPress={() => this.props.navigation.navigate('Signup')}>
-          <Text style={styles.text}>
-            Sign Up
-          </Text>
-        </TouchableOpacity>
+      <View style={{backgroundColor: colors.background, flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <PrimaryButton
+          onPress={() => this.props.navigation.navigate('Login')}
+          label="Login"
+        />
+        <PrimaryButton
+          onPress={() => this.props.navigation.navigate('Signup')}
+          label="Sign Up"
+        />
       </View>
     );
   }
@@ -44,17 +44,5 @@ class Splash extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  button: {
-    flex: 1,
-    height: 100,
-    width: 200,
-  },
-  text: {
-    fontSize: 30,
-    fontWeight: '600'
-  }
-});
 
 export default Splash;
