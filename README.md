@@ -26,7 +26,9 @@ To establish a video and peer-to-peer connection, WebRTC was implemented on top 
 
 #### Django Channels
 
-![video](http://res.cloudinary.com/dzbwfwz4j/image/upload/c_scale,h_670/v1499371538/smile_lo8hhb.jpg) | ![video](http://res.cloudinary.com/dzbwfwz4j/image/upload/c_scale,h_670/v1499371315/aaron_ka33ry.jpg)
+Splash screen              |  Home screen
+:-------------------------:|:-------------------------:
+![video](http://res.cloudinary.com/dzbwfwz4j/image/upload/c_scale,h_670/v1499371538/smile_lo8hhb.jpg)  |  ![categories](http://res.cloudinary.com/dzbwfwz4j/image/upload/c_scale,h_670/v1499371315/aaron_ka33ry.jpg)
 
 In order to implement WebRTC, it was necessary to set up a signaling server so that two
 users could establish a peer to peer connection. This involved implementing Django Channels, which
